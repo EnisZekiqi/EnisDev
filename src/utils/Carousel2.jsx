@@ -1,28 +1,23 @@
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useEffect,useState,useCallback } from 'react';
-const Carousel = (props) => {
+import { useEffect, useState, useCallback } from 'react';
+import { RiReactjsFill,RiTailwindCssFill  } from "react-icons/ri";
+import { LuFramer } from "react-icons/lu";
+
+const Carousel2 = (props) => {
   const { 
   slides = [
-    {
-      client: '10+',
-      username: 'Projects and counting',
+    { icon:<RiReactjsFill/>,
+      client: 'React',
+      username: 'Proficient with useState,useEffect,useCallback,useRef',
     },
-    {
-      client: '97k',
-      username: 'Lines of Code Written',
+    { icon:<RiTailwindCssFill/>,
+      client: 'Tailwind',
+      username: 'Rapidly build styles and themes without leaving the code & functions',
     },
-    {
-      client: '5+',
-      username: 'Years of Experience',
-    },
-    {
-      client: '500+',
-      username: 'GitHub Contributions',
-    },
-    {
-      client: '100%',
-      username: 'Client Satisfaction Rate',
+    { icon:<LuFramer/>,
+      client: 'FramerMotion',
+      username: 'Smooth animations,different transitions and multiple styles',
     },
   ], 
   options = { axis: 'x' } 
@@ -66,27 +61,23 @@ const Carousel = (props) => {
   }, [])
 
   return (
-    <section className="embla ">
-     <div className="embla__viewport" ref={emblaRef}>
-  <div className="embla__container">
-    {slides.map((slide, index) => (
-      <div className="embla__slide" key={index}>
-        <div className="embla__slide__number flex flex-col items-center">
-          <p className="text-xl sm:text-2xl lg:text-5xl font-bold" style={{ color: '#fbfbfb' }}>
-            {slide.client}
-          </p>
-          <p className="text-sm sm:text-md font-light md:font-medium" style={{ color: '#9f9fac' }}>
-            {slide.username}
-          </p>
+    <section className="embla2">
+  <div className="embla__viewport2" ref={emblaRef}>
+    <div className="embla__container2">
+      {slides.map((slide, index) => (
+        <div className="embla__slide2" key={index}>
+          <div className="embla__black-background2">
+            <div className="embla__icon2">{slide.icon}</div>
+            <p className="client-text">{slide.client}</p>
+          </div>
+          <div className="embla__text2 text-start">
+            <p className="username-text2 text-start">{slide.username}</p>
+          </div>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
   </div>
-</div>
-
-
-      {/* Navigation Buttons */}
-        <div className="embla__dots mt-2">
+          <div className="embla__dots mt-2">
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}
@@ -97,11 +88,12 @@ const Carousel = (props) => {
             />
           ))}
         </div>
-    </section>
+</section>
+
   );
 };
 
-export default Carousel;
+export default Carousel2;
 
 
  const DotButton = ({ onClick, className }) => (

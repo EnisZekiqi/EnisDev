@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Carousel from "../utils/Carousel";
+import Carousel2 from "../utils/Carousel2";
 
 const HeroSection = () => {
     return ( 
@@ -10,21 +11,22 @@ const HeroSection = () => {
                 {/* Left and Right content container */}
                 <div className="flex w-full items-center justify-between pl-14">
                     <div className="text-left text-white w-[40%]">
-                        <h1 className="text-4xl font-bold">
+                        <h1 className="text-4xl font-bold opacity-0">
                             Welcome to My Portfolio
                         </h1>
-                        <p className="mt-4 text-lg">
+                        <p className="mt-4 text-lg opacity-0">
                             Equal parts creative developer & designer.
                         </p>
                     </div>
 
                     {/* Content on the right of gradient */}
-                    <div className="text-right w-[40%] h-full bg-[#000] text-white p-6">
-                        
-                        <p className="text-2xl font-medium">Right Content</p>
+                    <div className="text-right w-[30%] h-full flex flex-col gap-8 justify-between bg-[#000] text-white p-6">
                         <p className="mt-2">
                         <Carousel/>
                         </p>
+                        <div className="secondCard bg-[#5C54F9] mt-10 flex flex-col items-center justify-center rounded-lg px-3 py-3 -mx-2.5">
+                           <Carousel2/>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,7 +45,7 @@ const HeroSection = () => {
                     </svg>                
                 </div>
                 <div className="absolute">
-                    <p className="p-4 text-2xl font-normal w-[70%]">
+                    <p className="p-4 text-3xl font-medium w-[70%]">
                         Equal parts creative developer & designer
                     </p>
                 </div>
@@ -56,7 +58,7 @@ export default HeroSection;
 
 function Navbar() {
     return (
-        <div className="fixed top-0 left-0">
+        <div className="fixed top-0 left-0 z-[300]">
             <div className="flex flex-col">
                 <div className="line bg-[#000] h-[20px] w-screen"></div>
                 <div className="-mt">
@@ -78,7 +80,7 @@ function Navbar() {
                                 </svg>
                             </div>
                         </div>
-                        <div className="navbarselection flex items-center font-medium gap-4 p-3 text-[#000] shadow-2xl">
+                        <div className="navbarselection flex items-center font-medium gap-4 blu p-3 text-[#000] shadow-2xl">
                             <p className="text-md hover:text-[#00000086] transition-colors duration-300">Projects</p>
                             <p className="text-md hover:text-[#00000086] transition-colors duration-300">About</p>
                             <p className="text-md hover:text-[#00000086] transition-colors duration-300">Skills</p>
