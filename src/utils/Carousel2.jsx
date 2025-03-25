@@ -7,15 +7,15 @@ import { LuFramer } from "react-icons/lu";
 const Carousel2 = (props) => {
   const { 
   slides = [
-    { icon:<RiReactjsFill/>,
+    { icon:<RiReactjsFill className="text-blue-500 drop-shadow-[0_0_10px_rgba(59,130,246,0.7)]"/>,
       client: 'React',
       username: 'Proficient with useState,useEffect,useCallback,useRef',
     },
-    { icon:<RiTailwindCssFill/>,
+    { icon:<RiTailwindCssFill className="text-cyan-400 drop-shadow-[0_0_10px_rgba(6,182,212,0.7)]"/>,
       client: 'Tailwind',
       username: 'Rapidly build styles and themes without leaving the code & functions',
     },
-    { icon:<LuFramer/>,
+    { icon:<LuFramer className="text-purple-500 drop-shadow-[0_0_10px_rgba(139,92,246,0.7)]"/>,
       client: 'FramerMotion',
       username: 'Smooth animations,different transitions and multiple styles',
     },

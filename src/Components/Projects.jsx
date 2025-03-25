@@ -7,7 +7,7 @@ import starway from '../assets/starway.png'
 import github from '../assets/9919.png'
 const Projects = () => {
     return ( 
-        <div className="h-screen ml- w-full flex flex-col justify-items-center justify-center mt-[15%] ">
+        <div id="projects" className="h-screen ml- w-full flex flex-col justify-items-center justify-center mt-[15%] ">
             <p className="text-[#757575] font-normal text-lg uppercase text-center mb-12">My work</p>
             <HoverImageLinks/>
         </div>
@@ -86,7 +86,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
       onMouseMove={handleMouseMove}
       initial="initial"
       whileHover="whileHover"
-      className="group relative flex items-center z-[400] justify-between border-b-2 border-neutral-700 py-4 transition-colors duration-500 hover:border-neutral-50 md:py-8"
+      className="group relative flex  items-center z-[400] justify-between border-b-2 border-neutral-700 py-4 transition-colors duration-500 hover:border-neutral-50 md:py-8"
     >
       <div>
         <motion.span

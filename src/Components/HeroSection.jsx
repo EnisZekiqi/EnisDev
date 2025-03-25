@@ -1,8 +1,31 @@
 import { useState, useEffect } from "react";
 import Carousel from "../utils/Carousel";
 import Carousel2 from "../utils/Carousel2";
-
+import { motion } from "motion/react";
 const HeroSection = () => {
+
+    
+const container = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.5,
+      staggerChildren: 0.5
+    }
+  }
+}
+  
+const item = {
+  hidden: { y: -20, opacity: 0 },
+  visible: {
+    y: 0,
+      opacity: 1,
+      transition: {
+        duration:1,ease:'easeInOut'
+    }
+  }
+}
     return ( 
         <div className="flex flex-col">
             <div className="gradient w-full h-screen flex ">
@@ -14,9 +37,9 @@ const HeroSection = () => {
                         <h1 className="text-4xl font-bold opacity-0">
                             Welcome to My Portfolio
                         </h1>
-                        <p className="mt-4 text-lg opacity-0">
+                        <motion.p className="mt-4 text-lg opacity-0">
                             Equal parts creative developer & designer.
-                        </p>
+                        </motion.p>
                     </div>
 
                     {/* Content on the right of gradient */}
@@ -31,7 +54,7 @@ const HeroSection = () => {
                 </div>
             </div>
 
-            <p className="w-[30%] bg-[#000] h-[100px] -mt-24 ml-[2%] p-6 rounded-tr-2xl">
+            <p className="w-[32%] bg-[#000] h-[100px] -mt-24 ml-[2%] p-6 rounded-tr-2xl">
                 <div className="relative">
                     <svg className="svg-corner corner-content-box-two rotate-270 -mt-13 -ml-3" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_310_2)">
@@ -45,9 +68,18 @@ const HeroSection = () => {
                     </svg>                
                 </div>
                 <div className="absolute">
-                    <p className="p-4 text-3xl font-medium w-[70%]">
-                        Equal parts creative developer & designer
-                    </p>
+                    <motion.p
+                            variants={container}
+                            initial="hidden"
+                            animate="visible"
+                            className="mt-4 text-4xl opacity-0">
+                            <motion.p variants={item} initial="hidden" animate="visible">
+                          Equal parts creative
+                            </motion.p>
+                            <motion.p variants={item} initial="hidden" animate="visible">
+                           developer & designer
+                            </motion.p>
+                        </motion.p>
                 </div>
             </p>
         </div>
@@ -58,7 +90,7 @@ export default HeroSection;
 
 function Navbar() {
     return (
-        <div className="fixed top-0 left-0 z-[300]">
+<div className="fixed top-0 left-0 z-[500] w-auto h-auto pointer-events-none">
             <div className="flex flex-col">
                 <div className="line bg-[#000] h-[20px] w-screen"></div>
                 <div className="-mt">
@@ -80,12 +112,22 @@ function Navbar() {
                                 </svg>
                             </div>
                         </div>
-                        <div className="navbarselection flex items-center font-medium gap-4 blu p-3 text-[#000] shadow-2xl">
-                            <p className="text-md hover:text-[#00000086] transition-colors duration-300">Projects</p>
-                            <p className="text-md hover:text-[#00000086] transition-colors duration-300">About</p>
+                        <motion.div
+                            initial={{ opacity: 0, x: -100 }}
+                            animate={{opacity:1,x:0,transition:{duration:1,ease:'easeInOut'}}}
+                            className="navbarselection flex items-center font-medium gap-4 blu py-4 px-5 text-[#000] shadow-2xl">
+                            <a href="#projects " className="cursor-pointer">
+                         <p className="text-md hover:text-[#00000086] transition-colors duration-300">Projects</p>
+                        </a>
+                            <a href="#about">
+                                <p className="text-md hover:text-[#00000086] transition-colors duration-300">About</p></a>
+                            <a href="#skills">
                             <p className="text-md hover:text-[#00000086] transition-colors duration-300">Skills</p>
-                            <p className="text-md hover:text-[#00000086] transition-colors duration-300">Contact</p>
-                        </div>
+                              </a>
+                            <a href="#contact">
+                                <p className="text-md hover:text-[#00000086] transition-colors duration-300">Contact</p>
+                            </a>
+                        </motion.div>
                     </div>
                     <svg className="svg-corner corner-logo-box-two ml-10" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_310_2)">

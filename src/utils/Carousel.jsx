@@ -28,7 +28,8 @@ const Carousel = (props) => {
   options = { axis: 'x' } 
 } = props;
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, draggable: true, // Ensure drag is enabled explicitly
+  axis: 'x', });
  
     useEffect(() => {
     let autoplay;
@@ -41,7 +42,10 @@ const Carousel = (props) => {
 
       const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
       emblaApi.on('select', onSelect); // Update selected dot on scroll
-      emblaApi.on('pointerDown', () => clearInterval(autoplay)); // Stop autoplay when user interacts
+emblaApi.on('pointerDown', () => {
+  clearInterval(autoplay);
+  emblaApi.stop(); // Stop scrolling manually when the user touches the carousel
+});
       onSelect();
     }
 
@@ -66,13 +70,13 @@ const Carousel = (props) => {
   }, [])
 
   return (
-    <section className="embla ">
+    <section className="embla">
      <div className="embla__viewport" ref={emblaRef}>
-  <div className="embla__container">
+  <div className="embla__container ">
     {slides.map((slide, index) => (
-      <div className="embla__slide" key={index}>
-        <div className="embla__slide__number flex flex-col items-center">
-          <p className="text-xl sm:text-2xl lg:text-5xl font-bold" style={{ color: '#fbfbfb' }}>
+      <div className="embla__slide " key={index}>
+        <div className="embla__slide__number flex flex-col items-center ">
+          <p className="text-xl sm:text-2xl lg:text-5xl font-bold " style={{ color: '#fbfbfb' }}>
             {slide.client}
           </p>
           <p className="text-sm sm:text-md font-light md:font-medium" style={{ color: '#9f9fac' }}>
