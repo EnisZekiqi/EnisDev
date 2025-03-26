@@ -7,7 +7,7 @@ const Contact = () => {
   return (
     <div id="contact" className="flex items-center justify-center mt-[15%]">
       <div className="gradient mx-16 rounded-3xl mb-10 flex flex-col items-start justify-start">
-        <h1 className="text-6xl font-medium w-[100%] mt-[15%] h-full pl-16">
+        <h1 className="text-6xl text-white font-medium w-[100%] mt-[15%] h-full pl-16">
           Want to Collaborate something <b>awesome</b> together?
         </h1>
         <div className="w-full flex items-end justify-end pr-16">

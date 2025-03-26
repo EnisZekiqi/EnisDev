@@ -34,7 +34,7 @@ const Skills = () => {
 
   return (
     <div id="skills"  className="flex flex-col items-center justify-center mt-[15%]">
-      <p className="text-[#757575] font-normal text-lg uppercase text-center mb-12">
+      <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-12">
         Skills & Services
       </p>
 
@@ -51,7 +51,7 @@ const Skills = () => {
             >
               {/* Animated Icon with Expanding Effect */}
               <motion.div
-                className="bg-black text-white p-2 rounded-full flex items-center justify-center transition-all duration-500"
+                className="bg-transparent  text-black dark:text-white p-2 rounded-full flex items-center justify-center transition-all duration-500"
                 initial={{ width: 40, height: 40 }}
                 whileInView={{ width: 60, height: 60 }}
                 viewport={{ once: true }}
@@ -62,7 +62,7 @@ const Skills = () => {
               {/* Category Title with Icon Inline */}
                   <motion.h3
   
-  className="mt-4 text-white text-7xl font-bold flex items-center"
+  className="mt-4 text-black dark:text-white transition-colors duration-300 text-7xl font-bold flex items-center"
                   >
   {service.category.split(' ')[0]}
   <motion.span
@@ -82,7 +82,7 @@ const Skills = () => {
       },
     }}
     viewport={{ once: true }}
-    className="border border-[#fbfbfb] rounded-2xl py-4 px-6 flex-shrink-0"
+    className="border border-black dark:border-[#fff] rounded-2xl py-4 px-6 flex-shrink-0"
   >
     <div>{service.icon}</div>
   </motion.span>
@@ -93,12 +93,12 @@ const Skills = () => {
 
 
               {/* Description and Skills */}
-              <p className="text-white text-sm mb-2 mt-2">{service.description}</p>
+              <p className="text-black dark:text-white text-sm mb-2 mt-2">{service.description}</p>
               <div className="flex gap-2 flex-wrap">
                 {service.skills.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 bg-[#ffffff20] text-white text-xs rounded-full"
+                    className="px-3 py-1 bg-[#000000a2] dark:bg-[#ffffff20] transition-colors duration-300 text-white text-xs rounded-full"
                   >
                     {skill}
                   </span>

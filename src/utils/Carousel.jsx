@@ -28,6 +28,9 @@ const Carousel = (props) => {
   options = { axis: 'x' } 
 } = props;
 
+
+  
+  
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, draggable: true, // Ensure drag is enabled explicitly
   axis: 'x', });
  
@@ -70,16 +73,16 @@ emblaApi.on('pointerDown', () => {
   }, [])
 
   return (
-    <section className="embla">
-     <div className="embla__viewport" ref={emblaRef}>
+    <section className="embla ">
+     <div className="embla__viewport bg-[#000]" ref={emblaRef}>
   <div className="embla__container ">
     {slides.map((slide, index) => (
       <div className="embla__slide " key={index}>
         <div className="embla__slide__number flex flex-col items-center ">
-          <p className="text-xl sm:text-2xl lg:text-5xl font-bold " style={{ color: '#fbfbfb' }}>
+          <p className="text-xl sm:text-2xl lg:text-5xl font-bold text-white  transition-colors duration-300" >
             {slide.client}
           </p>
-          <p className="text-sm sm:text-md font-light md:font-medium" style={{ color: '#9f9fac' }}>
+          <p className="text-sm sm:text-md font-light md:font-medium dark:text-[#9f9fac] text-[#66666e]">
             {slide.username}
           </p>
         </div>

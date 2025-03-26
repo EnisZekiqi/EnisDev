@@ -8,7 +8,7 @@ import github from '../assets/9919.png'
 const Projects = () => {
     return ( 
         <div id="projects" className="h-screen ml- w-full flex flex-col justify-items-center justify-center mt-[15%] ">
-            <p className="text-[#757575] font-normal text-lg uppercase text-center mb-12">My work</p>
+            <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-12">My work</p>
             <HoverImageLinks/>
         </div>
      );
@@ -19,7 +19,7 @@ export default Projects;
 
 const HoverImageLinks = () => {
   return (
-    <section className="bg-[#000] p-4 md:p-8">
+    <section className="dark:bg-[#000] bg-white transition-colors duration-300 p-4 md:p-8">
       <div className="mx-auto max-w-5xl">
         <Link
           heading="Finly"
@@ -86,7 +86,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
       onMouseMove={handleMouseMove}
       initial="initial"
       whileHover="whileHover"
-      className="group relative flex  items-center z-[400] justify-between border-b-2 border-neutral-700 py-4 transition-colors duration-500 hover:border-neutral-50 md:py-8"
+      className="group relative flex  items-center z-[400] justify-between border-b-2 border-[#000] dark:border-neutral-700 py-4 transition-colors duration-300 dark:hover:border-white hover:border-black md:py-8"
     >
       <div>
         <motion.span
@@ -99,7 +99,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
             staggerChildren: 0.075,
             delayChildren: 0.25,
           }}
-          className="relative z-[400] block text-4xl font-bold text-neutral-500 transition-colors duration-500 group-hover:text-neutral-50 md:text-6xl"
+          className="relative z-[400] block text-4xl font-bold dark:text-[#9f9fac] text-[#000] transition-colors duration-300 group-hover-text-[#000] dark:group-hover:text-neutral-50 md:text-6xl"
         >
           {heading.split("").map((l, i) => (
             <motion.span
@@ -115,7 +115,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
             </motion.span>
           ))}
         </motion.span>
-        <span className="relative z-[400] mt-2 block text-base text-neutral-500 transition-colors duration-500 group-hover:text-neutral-50">
+        <span className="relative z-[400] mt-2 block text-base dark:text-[#9f9fac] text-[#000] transition-colors duration-300 dark:group-hover:text-white">
           {subheading}
         </span>
       </div>
@@ -151,7 +151,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
         transition={{ type: "spring" }}
         className="relative z-[400] p-4"
       >
-        <FiArrowRight className="text-5xl text-neutral-50" />
+        <FiArrowRight className="text-5xl text-black dark:text-white" />
       </motion.div>
     </motion.a>
   );

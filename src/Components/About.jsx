@@ -22,27 +22,32 @@ const About = () => {
 
   return (
     <div id="about" className="relative flex flex-col items-center justify-center w-full mt-[15%]">
-      <p className="text-[#757575] font-normal text-lg uppercase text-center mb-12">
+      <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-12">
         About Me
       </p>
 
       {/* Abstract Animated Background Shapes */}
       <div className="absolute inset-0 z-0 flex justify-center items-center opacity-20">
-        <motion.div
-          className="w-40 h-40 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 blur-lg"
-          animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 5, repeat: Infinity }}
-        />
-        <motion.div
-          className="w-32 h-32 rounded-full bg-gradient-to-r from-green-500 to-cyan-500 blur-lg absolute top-10 left-[20%]"
-          animate={{ x: [0, 10, -10, 0] }}
-          transition={{ duration: 6, repeat: Infinity }}
-        />
+       <motion.div
+  className="w-40 h-40 rounded-full bg-gradient-to-r 
+             from-blue-800 to-purple-800 blur-lg 
+             dark:from-blue-500 dark:to-purple-500"
+  animate={{ scale: [1, 1.2, 1] }}
+  transition={{ duration: 5, repeat: Infinity }}
+/>
+<motion.div
+  className="w-32 h-32 rounded-full bg-gradient-to-r 
+             from-green-800 to-cyan-800 blur-lg absolute top-10 left-[20%] 
+             dark:from-green-500 dark:to-cyan-500"
+  animate={{ x: [0, 10, -10, 0] }}
+  transition={{ duration: 6, repeat: Infinity }}
+/>
+
       </div>
 
       {/* Text Animation */}
       <motion.p
-        className="relative text-sm md:text-lg text-center lg:text-2xl font-medium mt-1 w-[50%] text-[#f9f8f6] z-10"
+        className="relative text-sm md:text-lg text-center lg:text-2xl font-medium mt-1 w-[50%] text-black dark:text-[#fff] z-10"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
