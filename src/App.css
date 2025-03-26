@@ -40,7 +40,24 @@
   background-size: 200% 200%; /* Increase background scaling for more movement */
   animation: gradient-animation 8s ease-in-out infinite; /* Adjusted timing for smooth effect */
 }
-
+.gradient2 {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(334deg, #1280D6, #6931F6, #09B4A8, #0635CA, #00FFFF); /* Added more color stops */
+  background-size: 200% 200%; /* Increase background scaling for more movement */
+  animation: gradient-animation 8s ease-in-out infinite; /* Adjusted timing for smooth effect */
+}
+@media (max-width:1024px) {
+  .gradient{
+    width: 90%;
+    padding-top:40% ;
+  }
+  .gradient2{
+    width: 97%;
+    padding-top: 40%;
+    padding-bottom: 40%;
+  }
+}
 @keyframes gradient-animation {
   0% {
     background-position: 0% 50%;
@@ -118,11 +135,36 @@ input{
   position: relative;
   z-index: 400;
 }
+@media (max-width:1024px) {
+  .embla {
+    margin: auto;
 
+  --slide-height: 15rem;
+  --slide-spacing: 1rem;
+  --slide-size: 100%;
+}
+.embla__viewport {
+  overflow: hidden;
+  border-radius: 50%;
+}
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}
+
+
+}
 
 .embla__viewport {
   overflow: hidden;
-  border-radius: 50%; /* Round the viewport to create the circular shape */
+  border-radius: 10%;
   border: 2px solid #fbfbfb; /* Add the border for the circular effect */
   aspect-ratio: 1 / 1; /* Maintain the square aspect ratio before rounding */
 }
@@ -241,7 +283,14 @@ touch-action: pan-x;
 }
 
 
-
+.embla3 {
+  max-width: 17rem;
+  --slide-height: 19rem;
+  --slide-spacing: 1rem;
+  --slide-size: 100%;
+    position: relative;
+  z-index: 400;
+}
 
 
 
@@ -253,7 +302,16 @@ touch-action: pan-x;
     position: relative;
   z-index: 400;
 }
-
+@media (max-width:1115px) {
+  .embla2{
+    max-width: 20rem;
+  }
+}
+@media (max-width:1084px) {
+  .embla2{
+    max-width: 100%;
+  }
+}
 .embla__viewport2 {
   overflow: hidden;
 }
@@ -285,7 +343,12 @@ touch-action: pan-x;
   justify-content: center;
   margin-bottom: 1rem; /* Space between the black background and other text */
 }
+@media (max-width:1115px) {
+  .embla__black-background2 {
+    width: 100%;
+  }
 
+}
 .embla__icon2 {
   font-size: 4rem;  /* Adjust size of the icons */
   background-color: #000; /* Black background for the icon */
@@ -302,7 +365,7 @@ touch-action: pan-x;
 }
 
 .embla__text2 {
-  text-align: center;
+  text-align: start;
 }
 
 .username-text2 {

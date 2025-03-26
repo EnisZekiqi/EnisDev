@@ -27,14 +27,41 @@ const Skills = () => {
     category: "Additional Skills",
     description: "Tools and best practices for optimized development.",
     icon: <FaTools className="text-yellow-400 drop-shadow-[0_0_10px_rgba(234,179,8,0.7)]" />, // Yellow glow for tools
-    skills: ["Git", "Version Control", "SEO Optimization"],
+    skills: ["Git", "Libraries", " Optimization"],
   },
 ];
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    setIsLargeScreen(mediaQuery.matches); // Initial check
+
+    const handleResize = (e) => setIsLargeScreen(e.matches);
+    mediaQuery.addEventListener('change', handleResize);
+
+    return () => mediaQuery.removeEventListener('change', handleResize);
+  }, []);
+ const variants = {
+    hidden: { marginRight: '-15px', scale: 0, opacity: 0, width: 0, height: 0 },
+    visible: {
+      marginRight: '8px',
+      scale: 1,
+      opacity: 1,
+      width: isLargeScreen ? 120 : 'fit-content', // Adjust based on screen size
+      height: isLargeScreen ? 100 : 'fit-content', // Adjust based on screen size
+      transition: {
+        duration: 1,
+        delay: 0.5,
+        type: 'spring',
+        stiffness: 200,
+        damping: 30,
+      },
+    },
+  };
 
   return (
     <div id="skills"  className="flex flex-col items-center justify-center mt-[15%]">
-      <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-12">
+      <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-0 md:mb-12">
         Skills & Services
       </p>
 
@@ -62,30 +89,19 @@ const Skills = () => {
               {/* Category Title with Icon Inline */}
                   <motion.h3
   
-  className="mt-4 text-black dark:text-white transition-colors duration-300 text-7xl font-bold flex items-center"
+  className="mt-4 text-black dark:text-white transition-colors duration-300 text-xl md:text-5xl lg:text-7xl font-bold flex items-center"
                   >
   {service.category.split(' ')[0]}
-  <motion.span
-    initial={{ marginRight: '-15px', scale: 0, opacity: 0, width: 0, height: 0 }}
-    whileInView={{
-      marginRight: '8px', // Space between words after animation
-      scale: 1,
-      opacity: 1,
-      width: 120,
-      height: 100,
-      transition: {
-        duration: 1,
-        delay: 0.5,
-        type: 'spring',
-        stiffness: 200,
-        damping: 30,
-      },
-    }}
-    viewport={{ once: true }}
-    className="border border-black dark:border-[#fff] rounded-2xl py-4 px-6 flex-shrink-0"
-  >
-    <div>{service.icon}</div>
-  </motion.span>
+   <motion.span
+      initial="hidden"
+      whileInView="visible"
+      variants={variants}
+      viewport={{ once: true }}
+      className="border border-black dark:border-[#fff] rounded-2xl py-4 px-6 flex-shrink-0"
+    >
+      <div>{service.icon}</div>
+    </motion.span>
+
   {service.category.split(' ')[1]}
 </motion.h3>
 
@@ -93,8 +109,8 @@ const Skills = () => {
 
 
               {/* Description and Skills */}
-              <p className="text-black dark:text-white text-sm mb-2 mt-2">{service.description}</p>
-              <div className="flex gap-2 flex-wrap">
+              <p className="text-black dark:text-white text-xs sm:text-sm mb-2 mt-2 text-center ">{service.description}</p>
+              <div className="flex gap-2 ">
                 {service.skills.map((skill, i) => (
                   <span
                     key={i}

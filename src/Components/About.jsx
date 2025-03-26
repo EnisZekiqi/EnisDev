@@ -47,7 +47,7 @@ const About = () => {
 
       {/* Text Animation */}
       <motion.p
-        className="relative text-sm md:text-lg text-center lg:text-2xl font-medium mt-1 w-[50%] text-black dark:text-[#fff] z-10"
+        className="relative text-md md:text-lg text-center lg:text-2xl font-medium mt-1 w-[80%] lg:w-[50%] text-black dark:text-[#fff] z-10"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

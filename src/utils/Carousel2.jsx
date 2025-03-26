@@ -70,8 +70,8 @@ const Carousel2 = (props) => {
             <div className="embla__icon2">{slide.icon}</div>
             <p className="client-text">{slide.client}</p>
           </div>
-          <div className="embla__text2 text-start">
-            <p className="username-text2 text-start">{slide.username}</p>
+          <div className="embla__text2 text-start w-full">
+            <p className="username-text2 text-start px-0 lg:px-2 w-full">{slide.username}</p>
           </div>
         </div>
       ))}

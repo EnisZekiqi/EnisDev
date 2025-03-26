@@ -1,6 +1,6 @@
 import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import { useEffect,useState,useCallback } from 'react';
+import { useEffect,useState,useCallback,useRef } from 'react';
 const Carousel = (props) => {
   const { 
   slides = [
@@ -72,28 +72,55 @@ emblaApi.on('pointerDown', () => {
     setSelectedIndex(emblaApi.selectedScrollSnap())
   }, [])
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [emblaClass, setEmblaClass] = useState('embla');
+  const [secondClass,setSecondClass]=useState('embla__viewport')
+  const [thirdClass,setThirdClass]=useState('embla__slide2')
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup on component unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (windowWidth <= 1024) {
+      setEmblaClass('embla2');
+      setSecondClass('embla__viewport2')
+    } else {
+      setEmblaClass('embla');
+      setSecondClass('embla__viewport')
+    }
+  }, [windowWidth]);
+
+
   return (
-    <section className="embla ">
-     <div className="embla__viewport bg-[#000]" ref={emblaRef}>
-  <div className="embla__container ">
+    <section className={`${emblaClass}`}>
+     <div className={`${secondClass} bg-[#000] border-2 rounded-2xl lg:rounded-full border-[#fff] mx-10 lg:mx-0`} ref={emblaRef}>
+  <div className="embla__container2 ">
     {slides.map((slide, index) => (
-      <div className="embla__slide " key={index}>
-        <div className="embla__slide__number flex flex-col items-center ">
-          <p className="text-xl sm:text-2xl lg:text-5xl font-bold text-white  transition-colors duration-300" >
+      <div className="embla__slide2 " key={index}>
+        <div className="embla__slide__number2 flex flex-col items-center  p-8 lg:p-0 mt-2 lg:mt-22" >
+          <p className="text-3xl lg:text-5xl font-extrabold text-white  transition-colors duration-300" >
             {slide.client}
           </p>
-          <p className="text-sm sm:text-md font-light md:font-medium dark:text-[#9f9fac] text-[#66666e]">
+          <p className="text-md sm:text-lg font-light md:font-medium dark:text-[#9f9fac] text-[#66666e]">
             {slide.username}
           </p>
         </div>
       </div>
     ))}
-  </div>
+        </div>
 </div>
 
 
       {/* Navigation Buttons */}
-        <div className="embla__dots mt-2">
+        <div className="embla__dots mb-4">
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}

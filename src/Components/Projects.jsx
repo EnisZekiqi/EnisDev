@@ -7,8 +7,8 @@ import starway from '../assets/starway.png'
 import github from '../assets/9919.png'
 const Projects = () => {
     return ( 
-        <div id="projects" className="h-screen ml- w-full flex flex-col justify-items-center justify-center mt-[15%] ">
-            <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-12">My work</p>
+        <div id="projects" className="h-screen ml- w-full flex px-8 flex-col justify-items-center justify-center mt-[17%] ">
+            <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-10">My work</p>
             <HoverImageLinks/>
         </div>
      );
@@ -99,7 +99,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
             staggerChildren: 0.075,
             delayChildren: 0.25,
           }}
-          className="relative z-[400] block text-4xl font-bold dark:text-[#9f9fac] text-[#000] transition-colors duration-300 group-hover-text-[#000] dark:group-hover:text-neutral-50 md:text-6xl"
+          className="relative z-[400] block text-2xl sm:text-4xl font-bold dark:text-[#9f9fac] text-[#000] transition-colors duration-300 group-hover-text-[#000] dark:group-hover:text-neutral-50 md:text-6xl"
         >
           {heading.split("").map((l, i) => (
             <motion.span

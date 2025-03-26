@@ -27,10 +27,18 @@ const item = {
     }
   }
 }
+
+    const [menuOpen, setMenuOpen] = useState(true)
+    
+    const toggleMenu = () => {
+        setMenuOpen(prev =>!(prev))
+        localStorage.setItem('menu',menuOpen)
+    }
+    
     return ( 
         <div className="flex flex-col ">
-            <div className="gradient w-full h-screen flex items-center">
-                <Navbar />
+            <div className="gradient2 w-full h-screen  flex flex-col lg:flex-row items-center">
+                <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} toggleMenu={toggleMenu}/>
                 
                 {/* Left and Right content container */}
                 <div className="flex w-full items-center justify-between pl-14">
@@ -44,18 +52,18 @@ const item = {
                     </div>
 
                     {/* Content on the right of gradient */}
-                    <div className="text-right w-[30%] h-full flex flex-col gap-0 justify-between transition-colors duration-300 dark:bg-[#000] dark:text-white bg-white text-black p-6">
+                    <div className="text-right w-[30%] h-full hidden lg:flex flex-col gap-0 justify-between transition-colors duration-300 dark:bg-[#000] dark:text-white bg-white text-black p-6">
                         <p className="mt-2">
                         <Carousel/>
                         </p>
-                        <div className="secondCard bg-[#5C54F9] mt-10 -mb-5 flex flex-col items-center justify-center rounded-lg px-3 py-3 -mx-2.5">
+                        <div className="secondCard bg-[#5C54F9] w-fit mt-10 -mb-5 flex flex-col items-center justify-center rounded-lg px-3 py-3 -mx-2.5">
                            <Carousel2/>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <p className="w-[40%] dark:bg-[#000] bg-[#fff] transition-colors duration-300 h-[160px] -mt-38 ml-[2%] p-6 rounded-tr-2xl">
+            <p className="w-[55%] sm:w-[45%] md:w-[40%] dark:bg-[#000] bg-[#fff] transition-colors duration-300 h-[205px] sm:h-[160px] -mt-[200px] sm:-mt-38 ml-[2%] p-6 rounded-tr-2xl">
                 <div className="relative">
                     <svg className="svg-corner corner-content-box-two rotate-270 -mt-13 transition-colors duration-300 -ml-3 dark:fill-black fill-white" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_310_2)">
@@ -73,7 +81,7 @@ const item = {
                             variants={container}
                             initial="hidden"
                             animate="visible"
-                            className="mt-4 text-5xl opacity-0">
+                            className="mt-5 text-[26px] sm:text-[22px] md:text-[26px] w-[50%] sm:w-[90%] md:w-[100%] ml-4 sm:ml-5.5 md:ml-2.5 lg:text-3xl font-semibold xl:text-5xl opacity-0">
                             <motion.p variants={item} initial="hidden" animate="visible">
                           Equal parts creative
                             </motion.p>
@@ -83,19 +91,25 @@ const item = {
                         </motion.p>
                 </div>
             </p>
+            <div className="flex lg:hidden flex-col items-center gap-0 justify-center w-full mt-[28%]">
+                <Carousel />
+<div className="secondCard bg-[#5C54F9] ml-5 sm:ml-0 w-[90%] mt-10 -mb-5 flex flex-col items-center justify-center rounded-xl px-3 py-3 -mx-2.5">
+                           <Carousel2/>
+                        </div>    
+            </div>
         </div>
     );
 }
 
 export default HeroSection;
 
-function Navbar() {
+function Navbar({setMenuOpen,menuOpen,toggleMenu}) {
     return (
 <div className="fixed top-0 left-0 z-[500] w-auto h-auto pointer-events-none">
             <div className="flex flex-col">
-                <div className="line bg-[#fff] dark:bg-[#000] transition-colors duration-300 h-[20px] w-screen"></div>
-                <div className="-mt">
-                    <div className="flex items-center gap-4">
+                <div className="line -mt-4 bg-[#fff] dark:bg-[#000] transition-colors duration-300 h-[10px] md:h-[20px] w-screen"></div>
+                <div className="-mt  ">
+<div className="flex items-center justify-between pr-0 md:justify-stretch w-[100%] bg-white dark:bg-black md:bg-transparent md:dark:bg-transparent gap-4">
                         <div className="relative">
                             <h1 className="nametext p-6 bg-[#fff] dark:bg-[#000] transition-colors duration-300 w-fit font-bold text-lg">
                                 Enis Zekiqi
@@ -122,7 +136,7 @@ function Navbar() {
                         <motion.div
                             initial={{ opacity: 0, x: -100 }}
                             animate={{opacity:1,x:0,transition:{duration:1,ease:'easeInOut'}}}
-                            className="navbarselection flex items-center font-medium gap-4 blu py-4 px-5 text-[#000] shadow-2xl">
+                            className="navbarselection hidden md:flex items-center font-medium gap-4 blu py-4 px-5 text-[#000] shadow-2xl">
                             <a href="#projects " className="cursor-pointer">
                          <p className="text-md hover:text-[#00000086] transition-colors duration-300">Projects</p>
                         </a>
@@ -136,8 +150,54 @@ function Navbar() {
                             </a>
                             <ThemeToggle/>
                         </motion.div>
+                        <div className="flex flex-col md:hidden 123 bg-white dark:bg-[#000] p-6">
+                            <div
+                            className="relative flex flex-col pr- rounded-xl"
+                            style={{ backgroundColor: menuOpen ? '#5C54F9' : '' }}
+                            >
+                            <button
+                                onClick={toggleMenu}
+                                className={`py-1 px-2.5 rounded-full border font-semibold cursor-pointer pointer-events-auto 
+                                            ${menuOpen ? 'border-y border-b' : 'border border-black dark:border-white'}`}
+                            >
+                                {menuOpen ? 'Close' : 'Menu'}
+                            </button>
+                            </div>
+
+                            <div className="absolute ">
+                                 <svg
+                                className="svg-corner rotate-90 mt-14 corner-logo-box-two ml-[51px] sm:-ml-[2.5px] transition-colors duration-300 dark:fill-black fill-white"
+                                width="32"
+                                height="32"
+                                viewBox="0 0 30 30"
+                                xmlns="http://www.w3.org/2000/svg"
+                                >
+                                <g clipPath="url(#clip0_310_2)">
+                                    <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_310_2">
+                                    <rect width="30" height="30" fill="white"></rect>
+                                    </clipPath>
+                                </defs>
+                                </svg>
+                            </div>
+                            {menuOpen && (
+        <div className="absolute top-0 left-0 w-[88%] h-[80%] mt-13 ml-9 rounded-2xl bg-[#5C54F9]   dark:bg-#5C54F9 transition-all duration-300 flex flex-col gap-8 items-start p-4">
+            <div className="w-full flex flex-col gap-8 mt-5">
+             <a href=""><h2 className="text-2xl font-semibold border-b text-white">Projects</h2></a>
+            <a href=""><h2 className="text-2xl font-semibold border-b text-white">About</h2></a>
+            <a href=""><h2 className="text-2xl font-semibold border-b text-white">Skils</h2></a>
+            <a href=""><h2 className="text-2xl font-semibold border-b text-white">Contact</h2></a>
+
+                                    </div>
+                                    
+        </div>
+      )}
+
+                        </div>
                     </div>
-                    <svg className="svg-corner corner-logo-box-two ml-10 transition-colors duration-300 dark:fill-black fill-white" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="svg-corner corner-logo-box-two -mt-[1px] ml-9.5 transition-colors duration-300 dark:fill-black fill-white" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clipPath="url(#clip0_310_2)">
                             <path d="M30 0H0V30C0 13.431 13.431 0 30 0Z"></path>
                         </g>
