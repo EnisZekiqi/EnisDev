@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Carousel from "../utils/Carousel";
 import Carousel2 from "../utils/Carousel2";
-import { motion } from "motion/react";
+import { motion,AnimatePresence } from "motion/react";
 import ThemeToggle from "../utils/ThemeToggle";
 const HeroSection = () => {
 
@@ -30,9 +30,10 @@ const item = {
 
     const [menuOpen, setMenuOpen] = useState(true)
     
-    const toggleMenu = () => {
+    const toggleMenu = (e) => {
         setMenuOpen(prev =>!(prev))
         localStorage.setItem('menu',menuOpen)
+        e.Pagination()
     }
     
     return ( 
@@ -104,6 +105,11 @@ const item = {
 export default HeroSection;
 
 function Navbar({setMenuOpen,menuOpen,toggleMenu}) {
+
+
+const themeColor = localStorage.getItem("theme");
+
+
     return (
 <div className="fixed top-0 left-0 z-[500] w-auto h-auto pointer-events-none">
             <div className="flex flex-col">
@@ -152,7 +158,7 @@ function Navbar({setMenuOpen,menuOpen,toggleMenu}) {
                         </motion.div>
                         <div className="flex flex-col md:hidden 123 bg-white dark:bg-[#000] p-6">
                             <div
-                            className="relative flex flex-col pr- rounded-xl"
+                            className="relative flex flex-col pr- rounded-full"
                             style={{ backgroundColor: menuOpen ? '#5C54F9' : '' }}
                             >
                             <button
@@ -182,18 +188,77 @@ function Navbar({setMenuOpen,menuOpen,toggleMenu}) {
                                 </defs>
                                 </svg>
                             </div>
-                            {menuOpen && (
-        <div className="absolute top-0 left-0 w-[88%] h-[80%] mt-13 ml-9 rounded-2xl bg-[#5C54F9]   dark:bg-#5C54F9 transition-all duration-300 flex flex-col gap-8 items-start p-4">
-            <div className="w-full flex flex-col gap-8 mt-5">
-             <a href=""><h2 className="text-2xl font-semibold border-b text-white">Projects</h2></a>
-            <a href=""><h2 className="text-2xl font-semibold border-b text-white">About</h2></a>
-            <a href=""><h2 className="text-2xl font-semibold border-b text-white">Skils</h2></a>
-            <a href=""><h2 className="text-2xl font-semibold border-b text-white">Contact</h2></a>
+                            <AnimatePresence>
+                                {menuOpen && (
+                                    <motion.div
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1, transition: { duration: 0.5 } }}
+                                        exit={{ opacity: 0, transition: { duration: 0.5 } }}
+                                        className="absolute top-0 left-0 w-[88%] h-[80%] mt-13 ml-9 rounded-2xl bg-[#5C54F9] dark:bg-[#5C54F9] 
+             transition-all duration-300 flex flex-col gap-8 z-[1000] items-start p-4 border border-[#373297]"
+                                    >
+                                        <motion.div
+                                            className="w-full flex flex-col gap-8 mt-5 pointer-events-auto"
+                                            initial="hidden"
+                                            animate="visible"
+                                            variants={{
+                                                hidden: { opacity: 1 },
+                                                visible: {
+                                                    opacity: 1,
+                                                    transition: {
+                                                        staggerChildren: 0.2, // Staggering effect between child animations
+                                                    },
+                                                },
+                                            }}
+                                        >
+                                            {/** Defining motion for each anchor */}
+                                            <motion.a
+                                                href="#projects"
+                                                onClick={toggleMenu}
+                                                variants={{ hidden: { opacity: 0, y: -10 }, visible: { opacity: 1, y: 0 } }}
+                                            >
+                                                <h2 className="text-2xl font-semibold border-b text-white cursor-pointer">Projects</h2>
+                                            </motion.a>
 
-                                    </div>
-                                    
-        </div>
-      )}
+                                            <motion.a
+                                                href="#about"
+                                                onClick={toggleMenu}
+                                                variants={{ hidden: { opacity: 0, y: -10 }, visible: { opacity: 1, y: 0 } }}
+                                            >
+                                                <h2 className="text-2xl font-semibold border-b text-white">About</h2>
+                                            </motion.a>
+
+                                            <motion.a
+                                                href="#skills"
+                                                onClick={toggleMenu}
+                                                variants={{ hidden: { opacity: 0, y: -10 }, visible: { opacity: 1, y: 0 } }}
+                                            >
+                                                <h2 className="text-2xl font-semibold border-b text-white">Skills</h2>
+                                            </motion.a>
+
+                                            <motion.a
+                                                href="#contact"
+                                                onClick={toggleMenu}
+                                                variants={{ hidden: { opacity: 0, y: -10 }, visible: { opacity: 1, y: 0 } }}
+                                            >
+                                                <h2 className="text-2xl font-semibold border-b text-white">Contact</h2>
+                                            </motion.a>
+                                        </motion.div>
+
+                                        <motion.div
+                                        initial={{opacity:0}}
+                                            animate={{ opacity: 1, transition: {duration:0.5,delay:0.7} }}
+                                            className="flex items-center gap-2 mt-[65%]">
+                                            <div className="w-fit bg-white dark:bg-black pr-2 pl-2 pb-2.5 pt-2 rounded-full">
+                                                <ThemeToggle />
+                                            </div>
+                                            <p className="dark:text-white w-[20%] text-black">
+                                                {themeColor === 'dark' ? 'Dark Mode' : 'Light Mode'}
+                                            </p>
+                                        </motion.div>
+                                    </motion.div>
+                                )}
+            </AnimatePresence>
 
                         </div>
                     </div>

@@ -14,17 +14,10 @@ const ThemeToggle = () => {
     setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
   };
 
-  const [changeColor,setChangeColor]=useState(null)
-
-    useEffect(() => {
-        const changeMenu = localStorage.getItem("menu")
-        if (changeMenu) {
-            setChangeColor(changeMenu)
-        }
-},[])
+ 
     
   return (
-    <div className={`pointer-events-auto -mb-1 border ${changeColor === true ? 'border-white':'border-black'} rounded-full p-1`}>
+    <div className={`pointer-events-auto z-[500] -mb-1 border dark:border-white border-black rounded-full p-1`}>
       <button onClick={toggleTheme}>
         {theme === "dark" ? (
           <motion.div

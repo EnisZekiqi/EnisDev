@@ -97,7 +97,7 @@ const Skills = () => {
       whileInView="visible"
       variants={variants}
       viewport={{ once: true }}
-      className="border border-black dark:border-[#fff] rounded-2xl py-4 px-6 flex-shrink-0"
+      className="border border-black dark:border-[#fff] rounded-2xl py-2 px-4 md:py-4 md:px-6 flex-shrink-0"
     >
       <div>{service.icon}</div>
     </motion.span>
