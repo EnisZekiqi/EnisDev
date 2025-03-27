@@ -100,7 +100,7 @@ const Skills = () => {
       viewport={{ once: true }}
       className="border border-black dark:border-[#fff] rounded-2xl py-2 px-4 md:py-4 md:px-6 flex-shrink-0"
     >
-      <div>{service.icon}</div>
+      <motion.div initial={{opacity:0}} animate={{opacity:1,transition:{delay:0.7,duration:1}}}>{service.icon}</motion.div>
     </motion.span>
 
   {service.category.split(' ')[1]}
