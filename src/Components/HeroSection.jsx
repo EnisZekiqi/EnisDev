@@ -28,11 +28,10 @@ const item = {
   }
 }
 
-    const [menuOpen, setMenuOpen] = useState(true)
+    const [menuOpen, setMenuOpen] = useState(false)
     
     const toggleMenu = (e) => {
         setMenuOpen(prev =>!(prev))
-        localStorage.setItem('menu',menuOpen)
         e.Pagination()
     }
     
@@ -93,7 +92,9 @@ const item = {
                 </div>
             </p>
             <div className="flex lg:hidden flex-col items-center gap-0 justify-center w-full mt-[28%]">
-                <Carousel />
+            <div className="ml-6.5 w-full">
+                  <Carousel />
+            </div>
 <div className="secondCard bg-[#5C54F9] ml-5 sm:ml-0 w-[90%] mt-10 -mb-5 flex flex-col items-center justify-center rounded-xl px-3 py-3 -mx-2.5">
                            <Carousel2/>
                         </div>    

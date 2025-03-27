@@ -13,7 +13,7 @@ const Carousel = (props) => {
       username: 'Lines of Code Written',
     },
     {
-      client: '5+',
+      client: '2+',
       username: 'Years of Experience',
     },
     {

@@ -41,6 +41,7 @@ const Skills = () => {
 
     return () => mediaQuery.removeEventListener('change', handleResize);
   }, []);
+  
  const variants = {
     hidden: { marginRight: '-15px', scale: 0, opacity: 0, width: 0, height: 0 },
     visible: {
