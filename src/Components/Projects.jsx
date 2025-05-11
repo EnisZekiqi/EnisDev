@@ -5,9 +5,12 @@ import hollowpurple from '../assets/hollowpurple.png'
 import finly from '../assets/Capture.jpg'
 import starway from '../assets/starway.png'
 import github from '../assets/9919.png'
+import Reactify from '../assets/Reactify.jpg'
+import { AiOutlineFire } from "react-icons/ai";
+
 const Projects = () => {
     return ( 
-        <div id="projects" className="h-screen ml- w-full flex px-8 flex-col justify-items-center justify-center mt-[17%] ">
+        <div id="projects" className="h-screen ml- w-full flex px-8 flex-col justify-items-center justify-center mt-[21%] ">
             <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-10">My work</p>
             <HoverImageLinks/>
         </div>
@@ -21,6 +24,14 @@ const HoverImageLinks = () => {
   return (
     <section className="dark:bg-[#000] bg-white transition-colors duration-300 p-4 md:p-8">
       <div className="mx-auto max-w-5xl">
+      <Link
+          heading="Reactify"
+          subheading="React Component Library"
+          imgSrc={Reactify}
+          href="https://reactify-c4a.pages.dev/"
+          icon={<AiOutlineFire size={23} />}
+          text='New'
+        />
         <Link
           heading="Finly"
           subheading="Finance Tracker Project"
@@ -51,7 +62,7 @@ const HoverImageLinks = () => {
   );
 };
 
-const Link = ({ heading, imgSrc, subheading, href }) => {
+const Link = ({ heading, imgSrc, subheading, href,icon,text }) => {
   const ref = useRef(null);
 
   const x = useMotionValue(0);
@@ -114,6 +125,12 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
               {l}
             </motion.span>
           ))}
+         {icon && text && 
+          <div className="absolute flex items-center gap-1 -top-6 text-sm p-0.5 bg-[#08CAED] rounded-xl  text-black ">
+          {icon} 
+          {text}
+        </div>
+         }
         </motion.span>
         <span className="relative z-[400] mt-2 block text-base dark:text-[#9f9fac] text-[#000] transition-colors duration-300 dark:group-hover:text-white">
           {subheading}
