@@ -395,5 +395,39 @@ touch-action: pan-x;
 }
 
 .embla__dot--selected {
-  background-color: #fbfbfb;
+  background-color: #fbfb fb;
+}
+.mask-hero {
+  mask-image: url('https://tailwindcss.com/_next/static/media/mask.4b6d7838.png');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url('https://tailwindcss.com/_next/static/media/mask.4b6d7838.png');
+  -webkit-mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+}
+
+@media (max-width: 840px) {
+  .mask-hero{
+    mask-image: none;
+  }
+}
+
+.mask-herov2 {
+  mask-image: url('https://tailwindcss.com/_next/static/media/mask.4b6d7838.png');
+  mask-size: cover;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url('https://tailwindcss.com/_next/static/media/mask.4b6d7838.png');
+  -webkit-mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+}
+
+@media (max-width: 840px) {
+  .mask-herov2{
+    mask-image: url('https://tailwindcss.com/_next/static/media/mask.4b6d7838.png');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url('https://tailwindcss.com/_next/static/media/mask.4b6d7838.png');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  }
 }

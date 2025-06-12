@@ -1,21 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import HeroSection from './Components/HeroSection'
+import HeroSectionV2 from './Components/HeroSectionV2'
 import Projects from './Components/Projects'
 import About from './Components/About'
 import Skills from './Components/Skills'
-import Contact from './Components/Contact'
+import ContactV2 from './Components/ContactV2'
 function App() {
 
   return (
     <>
-      <HeroSection />
+      <HeroSectionV2/>
       <Projects />
       <About />
       <Skills />
-      <Contact/>
+      <ContactV2/>
     </>
   )
 }

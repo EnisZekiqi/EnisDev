@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Carousel from "../utils/Carousel";
 import Carousel2 from "../utils/Carousel2";
-import { motion,AnimatePresence } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import ThemeToggle from "../utils/ThemeToggle";
 const HeroSection = () => {
 
@@ -105,7 +105,7 @@ const item = {
 
 export default HeroSection;
 
-function Navbar({setMenuOpen,menuOpen,toggleMenu}) {
+function Navbar({menuOpen,toggleMenu}) {
 
 
 const themeColor = localStorage.getItem("theme");

@@ -1,20 +1,37 @@
-import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
+import { useMotionValue, motion,useSpring, useTransform,useScroll } from "framer-motion";
 import React, { useRef } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import hollowpurple from '../assets/hollowpurple.png'
 import finly from '../assets/Capture.jpg'
-import starway from '../assets/starway.png'
+import devtrove from '../assets/DevTrove.jpg'
 import github from '../assets/9919.png'
 import Reactify from '../assets/Reactify.jpg'
 import { AiOutlineFire } from "react-icons/ai";
 
 const Projects = () => {
-    return ( 
-        <div id="projects" className="h-screen ml- w-full flex px-8 flex-col justify-items-center justify-center mt-[21%] ">
-            <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-10">My work</p>
-            <HoverImageLinks/>
-        </div>
-     );
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center center"], // Animates when top of section enters view
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ opacity }}
+      id="projects"
+      className="min-h-screen w-full px-8 flex flex-col justify-center mt-[21%]"
+    >
+      <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-10">
+        My work
+      </p>
+      <HoverImageLinks />
+    </motion.div>
+  
+  );
 }
  
 export default Projects;
@@ -33,6 +50,13 @@ const HoverImageLinks = () => {
           text='New'
         />
         <Link
+          heading="DevTrove"
+          subheading="Dev Tools & Resources"
+          imgSrc={devtrove}
+          href="https://reactify-c4a.pages.dev/"
+          icon={<AiOutlineFire size={23} />}
+        />
+        <Link
           heading="Finly"
           subheading="Finance Tracker Project"
           imgSrc={finly}
@@ -44,12 +68,7 @@ const HoverImageLinks = () => {
           imgSrc={hollowpurple}
           href="https://hollow-purple-five.vercel.app/"
         />
-        <Link
-          heading="StarWays"
-          subheading="Social Media Project"
-          imgSrc={starway}
-          href="https://star-ways-fi3f.vercel.app/"
-        />
+        
         <Link
           heading="GitHub"
           subheading="See more about me"

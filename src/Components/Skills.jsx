@@ -9,7 +9,7 @@ const Skills = () => {
     category: "Web Development",
     description: "Building robust, responsive websites using modern frameworks.",
     icon: <FaReact className="text-blue-500 drop-shadow-[0_0_10px_rgba(59,130,246,0.7)]" />, // Blue glow for React
-    skills: ["React", "JavaScript", "HTML5"],
+    skills: ["React", "JavaScript", "TypeScript"],
   },
   {
     category: "Interactive Design",
@@ -61,12 +61,12 @@ const Skills = () => {
   };
 
   return (
-    <div id="skills"  className="flex flex-col items-center justify-center mt-[15%]">
-      <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-0 md:mb-12">
+    <div id="skills"  className="flex flex-col items-center justify-center mt-[20%]">
+      <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-0 ">
         Skills & Services
       </p>
 
-      <div className="relative z-10 mt-10 w-[70%]">
+      <div className="relative z-10 mt-0 w-[70%]">
         <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
           {services.map((service, index) => (
             <motion.div
