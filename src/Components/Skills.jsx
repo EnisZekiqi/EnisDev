@@ -71,7 +71,7 @@ const Skills = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center p-4  rounded-lg shadow-lg"
+              className="flex flex-col items-center p-4  rounded-lg "
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
