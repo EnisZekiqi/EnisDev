@@ -204,7 +204,7 @@ function Navbar({menuOpen,toggleMenu}) {
                     <ThemeToggle/>
                 </motion.div>
     </div>
-          <div className="flex md:hidden justify-between items-center p-6 relative z-[1000]">
+          <div className=" flex md:hidden justify-between items-center p-6 fixed top-0 bg-white dark:bg-black transition-colors duration-300 left-0 w-full z-[1000]">
           <h1 className='nametext  bg-white dark:bg-black transition-colors duration-300 w-fit font-bold text-lg'>Enis Zekiqi</h1>
 
           <div className="relative flex flex-col items-end">

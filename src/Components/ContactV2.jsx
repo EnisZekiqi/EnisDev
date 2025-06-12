@@ -35,7 +35,7 @@ const Contact = () => {
   >
     Want to contact me?
   </motion.h1>
-    <div className="mask-herov2 sticky top-0 max-h-screen pb-[12%]  w-full flex items-center justify-center
+    <div className="mask-herov2 sticky top-0 max-h-screen pb-[15%]  w-full flex items-center justify-center
     bg-gradient-to-br from-[#0f0f0f] via-[#111] to-[#222] dark:from-[#fbfbfb] dark:to-white text-white
     [mask-image:url(https://tailwindcss.com/_next/static/media/mask.4b6d7838.png)]
    

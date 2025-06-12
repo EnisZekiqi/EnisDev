@@ -53,7 +53,7 @@ const HoverImageLinks = () => {
           heading="DevTrove"
           subheading="Dev Tools & Resources"
           imgSrc={devtrove}
-          href="https://reactify-c4a.pages.dev/"
+          href="https://dev-trove.vercel.app/"
           icon={<AiOutlineFire size={23} />}
         />
         <Link
