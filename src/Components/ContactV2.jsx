@@ -105,7 +105,8 @@ const Contact = () => {
           whileHover={{ scale: 1.1, y: -5 }}
           transition={{ type: "spring", stiffness: 300 }}
           onMouseEnter={() => setContact("user")}
-          onMouseLeave={() => setContact("")}
+            onMouseLeave={() => setContact("")}
+            className="hidden sm:block"
         >
           <CiUser size={28} />
         </motion.button>
