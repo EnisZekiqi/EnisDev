@@ -47,7 +47,7 @@ const Contact = () => {
       {/* Email */}
       <motion.a
         href="mailto:enis_zekiqi@hotmail.com"
-        className="flex items-center transition-all mt-[20px] duration-300 z-[1000]"
+        className="flex items-center transition-all mt-[30px] sm:mt-[80px] duration-300 z-[1000]"
         onMouseEnter={() => setContact("mail")}
         onMouseLeave={() => setContact("")}
         initial={{ opacity: 0, y: 20 }}

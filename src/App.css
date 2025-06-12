@@ -3,6 +3,9 @@
 *{
   font-family: "Quicksand", sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 
 
