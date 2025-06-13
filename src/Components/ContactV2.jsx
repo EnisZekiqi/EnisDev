@@ -99,17 +99,7 @@ const Contact = () => {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        {/* CiUser */}
-        <motion.button
-          variants={iconVariants}
-          whileHover={{ scale: 1.1, y: -5 }}
-          transition={{ type: "spring", stiffness: 300 }}
-          onMouseEnter={() => setContact("user")}
-            onMouseLeave={() => setContact("")}
-            className="hidden sm:block"
-        >
-          <CiUser size={28} />
-        </motion.button>
+        
 
         {/* CiMail */}
         <motion.a

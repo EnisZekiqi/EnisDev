@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { IoIosSunny , IoIosMoon } from "react-icons/io"; // Correct icons
 import { motion } from "framer-motion"; // Correct import
+import { IoMdSunny,IoMdMoon  } from "react-icons/io";
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
@@ -33,7 +34,7 @@ const ThemeToggle = () => {
               },
             }}
           >
-            <IoIosSunny className="w-[22px] h-[22px] -mb-1" />
+            <IoMdSunny className="w-[22px] h-[22px] -mb-1" />
           </motion.div>
         ) : (
           <motion.div
@@ -49,7 +50,7 @@ const ThemeToggle = () => {
               },
             }}
           >
-            <IoIosMoon className="w-[22px] h-[22px] -mb-1" />
+            <IoMdMoon className="w-[22px] h-[22px] -mb-1" />
           </motion.div>
         )}
       </button>

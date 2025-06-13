@@ -210,7 +210,7 @@ function Navbar({menuOpen,toggleMenu}) {
           <div className="relative flex flex-col items-end">
             <button
               onClick={toggleMenu}
-              className="py-1 px-2.5 rounded-full border font-semibold cursor-pointer pointer-events-auto dark:bg-black bg-white border-black dark:border-white relative z-[1010]"
+              className="py-1 px-2.5 rounded-full text-black border font-semibold cursor-pointer pointer-events-auto bg-transparent border-black dark:border-white relative z-[1010]"
             >
               {menuOpen ? 'Close' : 'Menu'}
             </button>
