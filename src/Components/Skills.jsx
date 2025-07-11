@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { SiTailwindcss, SiFramer } from "react-icons/si";
 import { FaReact, FaCode, FaTools } from "react-icons/fa"; // Removed unnecessary icons
-import { motion } from "motion/react";
+import { motion ,AnimatePresence} from "motion/react";
 
 const Skills = () => {
   const services = [
@@ -42,24 +42,31 @@ const Skills = () => {
     return () => mediaQuery.removeEventListener('change', handleResize);
   }, []);
   
- const variants = {
-    hidden: { marginRight: '-15px', scale: 0, opacity: 0, width: 0, height: 0 },
+  const variants = {
+    hidden: {
+      scale: 0,
+      opacity: 0,
+    },
     visible: {
-      marginRight: '8px',
       scale: 1,
       opacity: 1,
-      width: isLargeScreen ? 120 : 'fit-content', // Adjust based on screen size
-      height: isLargeScreen ? 100 : 'fit-content', // Adjust based on screen size
       transition: {
-        duration: 1,
-        delay: 0.5,
+        duration: 0.6,
+        delay: 0.3,
         type: 'spring',
-        stiffness: 200,
-        damping: 30,
+        stiffness: 120,
+        damping: 15,
       },
     },
   };
+  
+  const [showIcon, setShowIcon] = useState(false);
 
+  useEffect(() => {
+    const timer = setTimeout(() => setShowIcon(true), 600); // Adjust delay to match motion
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
     <div id="skills"  className="flex flex-col items-center justify-center mt-[20%]">
       <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-0 ">
@@ -88,22 +95,31 @@ const Skills = () => {
               </motion.div>
 
               {/* Category Title with Icon Inline */}
-                  <motion.h3
-  
-  className="mt-4 text-black dark:text-white transition-colors duration-300 text-xl md:text-5xl lg:text-7xl font-bold flex items-center"
-                  >
-  {service.category.split(' ')[0]}
-   <motion.span
-      initial="hidden"
-      whileInView="visible"
-      variants={variants}
-      viewport={{ once: true }}
-      className="border border-black dark:border-[#fff] rounded-2xl py-2 px-4 md:py-4 md:px-6 flex-shrink-0"
-    >
-      <motion.div initial={{opacity:0}} animate={{opacity:1,transition:{delay:0.7,duration:1}}}>{service.icon}</motion.div>
-    </motion.span>
+              <motion.h3
+  className="mt-4 text-black dark:text-white text-xl sm:text-3xl md:text-7xl font-bold flex items-center justify-center gap-3 text-center"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.5 }}
+>
+<motion.span layout>{service.category.split(" ")[0]}</motion.span>
 
-  {service.category.split(' ')[1]}
+  <AnimatePresence>
+  {showIcon && (
+    <motion.span
+      key="service-icon"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0, opacity: 0 }}
+      transition={{ duration: 0.5, type: "spring", stiffness: 200, damping: 20 }}
+      className="border border-black dark:border-white bg-black dark:bg-transparent rounded-2xl p-2.5"
+      layout
+    >
+      {service.icon}
+    </motion.span>
+  )}
+</AnimatePresence>
+
+<motion.span layout>{service.category.split(" ")[1]}</motion.span>
 </motion.h3>
 
 

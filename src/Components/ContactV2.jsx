@@ -48,8 +48,7 @@ const Contact = () => {
       <motion.a
         href="mailto:enis_zekiqi@hotmail.com"
         className="flex items-center transition-all mt-[30px] sm:mt-[80px] duration-300 z-[1000]"
-        onMouseEnter={() => setContact("mail")}
-        onMouseLeave={() => setContact("")}
+     
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -105,10 +104,9 @@ const Contact = () => {
         <motion.a
           href="mailto:enis_zekiqi@hotmail.com"
           variants={iconVariants}
-          whileHover={{ scale: 1.1, y: -5 }}
+        
           transition={{ type: "spring", stiffness: 300 }}
-          onMouseEnter={() => setContact("mail")}
-          onMouseLeave={() => setContact("")}
+         
         >
           <CiMail size={28} />
         </motion.a>
@@ -119,10 +117,9 @@ const Contact = () => {
           target="_blank"
           rel="noopener noreferrer"
           variants={iconVariants}
-          whileHover={{ scale: 1.1, y: -5 }}
+         
           transition={{ type: "spring", stiffness: 300 }}
-          onMouseEnter={() => setContact("linkedin")}
-          onMouseLeave={() => setContact("")}
+         
         >
           <CiLinkedin size={28} />
         </motion.a>

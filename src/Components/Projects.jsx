@@ -3,9 +3,9 @@ import React, { useRef } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import hollowpurple from '../assets/hollowpurple.png'
 import finly from '../assets/Capture.jpg'
-import devtrove from '../assets/DevTrove.jpg'
+import dd from '../assets/dd.jpg'
 import github from '../assets/9919.png'
-import Reactify from '../assets/Reactify.jpg'
+import rr from '../assets/rr.jpg'
 import { AiOutlineFire } from "react-icons/ai";
 
 const Projects = () => {
@@ -44,7 +44,7 @@ const HoverImageLinks = () => {
       <Link
           heading="Reactify"
           subheading="React Component Library"
-          imgSrc={Reactify}
+          imgSrc={rr}
           href="https://reactify-c4a.pages.dev/"
           icon={<AiOutlineFire size={23} />}
           text='New'
@@ -52,7 +52,7 @@ const HoverImageLinks = () => {
         <Link
           heading="DevTrove"
           subheading="Dev Tools & Resources"
-          imgSrc={devtrove}
+          imgSrc={dd}
           href="https://dev-trove.vercel.app/"
           icon={<AiOutlineFire size={23} />}
         />
@@ -169,7 +169,7 @@ const Link = ({ heading, imgSrc, subheading, href,icon,text }) => {
         }}
         transition={{ type: "spring" }}
         src={imgSrc}
-        className="absolute z-[400] h-24 w-32 rounded-lg object-cover md:h-48 md:w-64"
+        className="absolute z-[400] h-24 w-32 rounded-lg object-contain md:h-48 md:w-64"
         alt={`Image representing a link for ${heading}`}
       />
 
