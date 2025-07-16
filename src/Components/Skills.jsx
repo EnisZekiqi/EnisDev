@@ -62,7 +62,7 @@ const Skills = () => {
         Skills & Services
       </p>
 
-      <div className="relative z-10 mt-10 w-[70%]">
+      <div className="relative z-10 mt-0 w-[70%]">
         <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
           {services.map((service, index) => (
             <motion.div
@@ -85,36 +85,47 @@ const Skills = () => {
 
               {/* Category Title with Icon Inline */}
               <motion.h3
-  className="mt-4 text-white text-xl sm:text-3xl md:text-7xl font-bold gap-1 flex items-center"
+  className="mt-4 text-white text-xl sm:text-3xl md:text-7xl font-bold gap-0 flex items-center justify-center"
   layout
 >
-  <motion.span layout>
+  {/* Left word (e.g., "Web") */}
+  <motion.span
+    layout
+    initial={{ opacity: 0, x: 0 }}
+    whileInView={{ opacity: 1, x: -20 }}
+    viewport={{ once: true,amount: 0.2  }}
+                  transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.1 }}
+                  className="-mr-2 sm:-mr-1"
+  >
     {service.category.split(' ')[0]}
   </motion.span>
 
-  {/* Icon container grows as icon scales */}
+  {/* Icon in center */}
   <motion.span
     layout
-    initial="hidden"
-    whileInView="visible"
+    initial={{ scale: 0 }}
+    whileInView={{ scale: 1 }}
     viewport={{ once: true }}
-    variants={iconVariants(isLargeScreen)}
+    transition={{ type: 'spring', stiffness: 300, damping: 25, delay: 0.2 }}
     className="border border-black dark:border-[#fff] rounded-2xl px-4 py-2 sm:py-4 sm:px-6 flex-shrink-0 flex items-center justify-center"
   >
-    <motion.div
-      layout
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-    >
-      {service.icon}
-    </motion.div>
+    {service.icon}
   </motion.span>
 
-  <motion.span layout>
+  {/* Right word (e.g., "Development") */}
+  <motion.span
+    layout
+    initial={{ opacity: 0, x: 0 }}
+    whileInView={{ opacity: 1, x: 20 }}
+    viewport={{ once: true }}
+                  transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.1 }}
+                  className="-ml-3 sm:-ml-2"
+
+  >
     {service.category.split(' ')[1]}
   </motion.span>
 </motion.h3>
+
 
 
 

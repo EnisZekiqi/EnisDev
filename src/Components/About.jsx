@@ -27,7 +27,7 @@ const About = () => {
       </p>
 
       {/* Abstract Animated Background Shapes */}
-      <div className="absolute inset-0 z-0 flex justify-center items-center opacity-20">
+      <div className="absolute inset-0 z-0 flex justify-center items-center opacity-30">
        <motion.div
   className="w-40 h-40 rounded-full bg-gradient-to-r 
              from-blue-800 to-purple-800 blur-lg 

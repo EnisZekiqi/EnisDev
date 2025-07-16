@@ -9,28 +9,18 @@ import rr from '../assets/rr.jpg'
 import { AiOutlineFire } from "react-icons/ai";
 
 const Projects = () => {
-  const ref = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center center"], // Animates when top of section enters view
-  });
-
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+ 
 
   return (
-    <motion.div
-      ref={ref}
-      style={{ opacity }}
-      id="projects"
-      className="min-h-screen w-full px-8 flex flex-col justify-center mt-[21%]"
-    >
-      <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-10">
-        My work
-      </p>
-      <HoverImageLinks />
-    </motion.div>
-  
+    <div
+    id="projects"
+    className="min-h-screen w-full px-8 flex flex-col justify-center mt-[21%]"
+  >
+    <p className="text-[#66666e] dark:text-[#757575] font-normal text-lg uppercase text-center mb-10">
+      My work
+    </p>
+    <HoverImageLinks />
+  </div>
   );
 }
  
@@ -81,7 +71,7 @@ const HoverImageLinks = () => {
   );
 };
 
-const Link = ({ heading, imgSrc, subheading, href,icon,text }) => {
+const Link = ({ heading, imgSrc, subheading, href, icon, text }) => {
   const ref = useRef(null);
 
   const x = useMotionValue(0);
@@ -95,10 +85,8 @@ const Link = ({ heading, imgSrc, subheading, href,icon,text }) => {
 
   const handleMouseMove = (e) => {
     const rect = ref.current.getBoundingClientRect();
-
     const width = rect.width;
     const height = rect.height;
-
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
@@ -110,85 +98,92 @@ const Link = ({ heading, imgSrc, subheading, href,icon,text }) => {
   };
 
   return (
-    <motion.a
-      href={href}
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      initial="initial"
-      whileHover="whileHover"
-      className="group relative flex  items-center z-[400] justify-between border-b-2 border-[#000] dark:border-neutral-700 py-4 transition-colors duration-300 dark:hover:border-white hover:border-black md:py-8"
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ type: "spring", stiffness: 80, damping: 16 }}
     >
-      <div>
-        <motion.span
-          variants={{
-            initial: { x: 0 },
-            whileHover: { x: -16 },
-          }}
-          transition={{
-            type: "spring",
-            staggerChildren: 0.075,
-            delayChildren: 0.25,
-          }}
-          className="relative z-[400] block text-2xl sm:text-4xl font-bold dark:text-[#9f9fac] text-[#000] transition-colors duration-300 group-hover-text-[#000] dark:group-hover:text-neutral-50 md:text-6xl"
-        >
-          {heading.split("").map((l, i) => (
-            <motion.span
-              variants={{
-                initial: { x: 0 },
-                whileHover: { x: 16 },
-              }}
-              transition={{ type: "spring" }}
-              className="inline-block"
-              key={i}
-            >
-              {l}
-            </motion.span>
-          ))}
-         {icon && text && 
-          <div className="absolute flex items-center gap-1 -top-6 text-sm p-0.5 bg-[#08CAED] rounded-xl  text-black ">
-          {icon} 
-          {text}
-        </div>
-         }
-        </motion.span>
-        <span className="relative z-[400] mt-2 block text-base dark:text-[#9f9fac] text-[#000] transition-colors duration-300 dark:group-hover:text-white">
-          {subheading}
-        </span>
-      </div>
-
-      <motion.img
-        style={{
-          top,
-          left,
-          translateX: "-50%",
-          translateY: "-50%",
-        }}
-        variants={{
-          initial: { scale: 0, rotate: "-12.5deg" },
-          whileHover: { scale: 1, rotate: "12.5deg" },
-        }}
-        transition={{ type: "spring" }}
-        src={imgSrc}
-        className="absolute z-[400] h-24 w-32 rounded-lg object-contain md:h-48 md:w-64"
-        alt={`Image representing a link for ${heading}`}
-      />
-
-      <motion.div
-        variants={{
-          initial: {
-            x: "25%",
-            opacity: 0,
-          },
-          whileHover: {
-            x: "0%",
-            opacity: 1,
-          },
-        }}
-        transition={{ type: "spring" }}
-        className="relative z-[400] p-4"
+      <motion.a
+        href={href}
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        initial="initial"
+        whileHover="whileHover"
+        className="group relative flex items-center z-[400] justify-between border-b-2 border-[#000] dark:border-neutral-700 py-4 transition-colors duration-300 dark:hover:border-white hover:border-black md:py-8"
       >
-        <FiArrowRight className="text-5xl text-black dark:text-white" />
-      </motion.div>
-    </motion.a>
+        <div>
+          <motion.span
+            variants={{
+              initial: { x: 0 },
+              whileHover: { x: -16 },
+            }}
+            transition={{
+              type: "spring",
+              staggerChildren: 0.075,
+              delayChildren: 0.25,
+            }}
+            className="relative z-[400] block text-2xl sm:text-4xl font-bold dark:text-[#9f9fac] text-[#000] transition-colors duration-300 group-hover-text-[#000] dark:group-hover:text-neutral-50 md:text-6xl"
+          >
+            {heading.split("").map((l, i) => (
+              <motion.span
+                variants={{
+                  initial: { x: 0 },
+                  whileHover: { x: 16 },
+                }}
+                transition={{ type: "spring" }}
+                className="inline-block"
+                key={i}
+              >
+                {l}
+              </motion.span>
+            ))}
+            {icon && text && (
+              <div className="absolute flex items-center gap-1 -top-6 text-sm p-0.5 bg-[#08CAED] rounded-xl text-black">
+                {icon}
+                {text}
+              </div>
+            )}
+          </motion.span>
+          <span className="relative z-[400] mt-2 block text-base dark:text-[#9f9fac] text-[#000] transition-colors duration-300 dark:group-hover:text-white">
+            {subheading}
+          </span>
+        </div>
+
+        <motion.img
+          style={{
+            top,
+            left,
+            translateX: "-50%",
+            translateY: "-50%",
+          }}
+          variants={{
+            initial: { scale: 0, rotate: "-12.5deg" },
+            whileHover: { scale: 1, rotate: "12.5deg" },
+          }}
+          transition={{ type: "spring" }}
+          src={imgSrc}
+          className="absolute z-[400] h-24 w-32 rounded-lg object-contain md:h-48 md:w-64"
+          alt={`Image representing a link for ${heading}`}
+        />
+
+        <motion.div
+          variants={{
+            initial: {
+              x: "25%",
+              opacity: 0,
+            },
+            whileHover: {
+              x: "0%",
+              opacity: 1,
+            },
+          }}
+          transition={{ type: "spring" }}
+          className="relative z-[400] p-4"
+        >
+          <FiArrowRight className="text-5xl text-black dark:text-white" />
+        </motion.div>
+      </motion.a>
+    </motion.div>
   );
 };
