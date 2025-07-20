@@ -1,5 +1,5 @@
 import './App.css'
-import HeroSectionV2 from './Components/HeroSectionV2'
+import HeroSectionV3 from './Components/HeroSectionV3'
 import Projects from './Components/Projects'
 import About from './Components/About'
 import Skills from './Components/Skills'
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <HeroSectionV2/>
+      <HeroSectionV3/>
       <Projects />
       <About />
       <Skills />
