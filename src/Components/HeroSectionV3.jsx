@@ -45,8 +45,10 @@ const [menuOpen, setMenuOpen] = useState(false)
       </motion.h1>
 
       {/* 🔻 Triangle diagonal overlay */}
-      <div
-        className="absolute hidden md:block top-[48%] left-[29%] shadow-[0_0_40px_#fff] dark:shadow-[0_0_40px_#000] rotate-35 w-40 bg-white dark:bg-black h-36 z-20"
+      <motion.div
+      initial={{opacity:0,x:-10,y:-10}}
+      animate={{opacity:1,x:0,y:0,transition:{duration:0.5,delay:0.2}}}
+        className="absolute top-[48%] left-[59%] shadow-[0_0_40px_#fff] dark:shadow-[0_0_40px_#000] rotate-35 w-40 bg-white dark:bg-black h-36 z-[100]"
         style={{
           borderLeft: '1px solid #343434',
         }}
@@ -55,10 +57,10 @@ const [menuOpen, setMenuOpen] = useState(false)
         <p className="absolute bottom-25 right-18 -rotate-35 text-xs text-black dark:text-white opacity-100 dark:opacity-60 tracking-wide">
           Enis Zekiqi
         </p>
-      </div>
+      </motion.div>
 
       {/* 📦 Bottom-right stat card */}
-     <div className="absolute bottom-2  left-6 sm:left-0 right-6 flex gap-6 border border-[#343434] bg-white  text-black dark:text-white dark:bg-[#343434]/20 dark:text-white p-4 rounded-xl shadow-lg z-30 text-sm">
+     <div className="absolute bottom-2  text-center   right-6 flex gap-6 border border-[#343434] bg-white  text-black dark:text-white dark:bg-[#343434]/20 dark:text-white p-4 rounded-xl shadow-lg z-30 text-sm">
         <div>
           <p className="font-semibold">15+ </p>
           <p className="opacity-100 dark:opacity-60 text-xs">Projects</p>
