@@ -18,7 +18,7 @@ const ThemeToggle = () => {
  
     
   return (
-    <div className={`pointer-events-auto z-[500] bg-transparent -mb-1 border dark:border-white border-black rounded-full p-1`}>
+    <div className={`pointer-events-auto z-[500] bg-transparent -mb-1 border dark:border-black border-white rounded-full p-1`}>
       <button onClick={toggleTheme}>
         {theme === "dark" ? (
           <motion.div

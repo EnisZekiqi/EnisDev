@@ -48,7 +48,7 @@ const [menuOpen, setMenuOpen] = useState(false)
       <motion.div
       initial={{opacity:0,x:-10,y:-10}}
       animate={{opacity:1,x:0,y:0,transition:{duration:0.5,delay:0.2}}}
-        className="absolute top-[48%] left-[59%] shadow-[0_0_40px_#fff] dark:shadow-[0_0_40px_#000] rotate-35 w-40 bg-white dark:bg-black h-36 z-[100]"
+        className="absolute top-[48%] left-[59%] sm:left-[29%] shadow-[0_0_40px_#fff] dark:shadow-[0_0_40px_#000] rotate-35 w-40 bg-white dark:bg-black h-36 z-[100] sm:z-20"
         style={{
           borderLeft: '1px solid #343434',
         }}
