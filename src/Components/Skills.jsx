@@ -67,7 +67,7 @@ const Skills = () => {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center p-4  rounded-lg shadow-lg"
+              className="flex flex-col items-center p-4  rounded-lg "
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -75,7 +75,7 @@ const Skills = () => {
             >
               {/* Animated Icon with Expanding Effect */}
               <motion.div
-                className="bg-black text-white p-2 rounded-full flex items-center justify-center transition-all duration-500"
+                className="bg-white dark:bg-black text-white p-2 rounded-full flex items-center justify-center transition-all duration-500"
                 initial={{ width: 40, height: 40 }}
                 whileInView={{ width: 60, height: 60 }}
                 viewport={{ once: true }}
@@ -85,7 +85,7 @@ const Skills = () => {
 
               {/* Category Title with Icon Inline */}
               <motion.h3
-  className="mt-4 text-white text-xl sm:text-3xl md:text-7xl font-bold gap-0 flex items-center justify-center"
+  className="mt-4 text-white text-xl sm:text-3xl text-black dark:text-white md:text-7xl font-bold gap-0 flex items-center justify-center"
   layout
 >
   {/* Left word (e.g., "Web") */}
@@ -95,7 +95,7 @@ const Skills = () => {
     whileInView={{ opacity: 1, x: -20 }}
     viewport={{ once: true,amount: 0.2  }}
                   transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.1 }}
-                  className="-mr-2 sm:-mr-1"
+                  className="-mr-2 sm:-mr-1 text-black dark:text-white"
   >
     {service.category.split(' ')[0]}
   </motion.span>
@@ -107,7 +107,7 @@ const Skills = () => {
     whileInView={{ scale: 1 }}
     viewport={{ once: true }}
     transition={{ type: 'spring', stiffness: 300, damping: 25, delay: 0.2 }}
-    className="border border-black dark:border-[#fff] rounded-2xl px-4 py-2 sm:py-4 sm:px-6 flex-shrink-0 flex items-center justify-center"
+    className="border border-black dark:border-[#fff] bg-black rounded-2xl px-4 py-2 sm:py-4 sm:px-6 flex-shrink-0 flex items-center justify-center"
   >
     {service.icon}
   </motion.span>
@@ -119,7 +119,7 @@ const Skills = () => {
     whileInView={{ opacity: 1, x: 20 }}
     viewport={{ once: true }}
                   transition={{ type: 'spring', stiffness: 100, damping: 20, delay: 0.1 }}
-                  className="-ml-3 sm:-ml-2"
+                  className="-ml-3 sm:-ml-2 text-black dark:text-white"
 
   >
     {service.category.split(' ')[1]}
@@ -132,12 +132,12 @@ const Skills = () => {
 
 
               {/* Description and Skills */}
-              <p className="text-white text-sm mb-2 mt-2">{service.description}</p>
+              <p className="text-black dark:text-white text-center text-sm mb-2 mt-2">{service.description}</p>
               <div className="flex gap-2 flex-wrap">
                 {service.skills.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 bg-[#ffffff20] text-white text-xs rounded-full"
+                    className="px-3 py-1 bg-black/70 dark:bg-[#ffffff20] text-white text-xs rounded-full"
                   >
                     {skill}
                   </span>
