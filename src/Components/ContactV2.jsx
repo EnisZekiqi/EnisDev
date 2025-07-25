@@ -7,7 +7,7 @@ const Contact = () => {
 
       {/* 💠 Floating Animated Blobs */}
       <motion.div
-        className="w-40 h-40 rounded-full bg-gradient-to-r 
+        className="w-20 h-20 sm:w-40 sm:h-40 rounded-full bg-gradient-to-r 
                    from-blue-800 to-purple-800 blur-xl opacity-40
                    dark:from-blue-500 dark:to-purple-500 
                    absolute left-[15%] top-[40%] z-0"
@@ -16,7 +16,7 @@ const Contact = () => {
       />
 
       <motion.div
-        className="w-32 h-32 rounded-full bg-gradient-to-r 
+        className="w-16 h-16 sm:w-32 sm:h-32 rounded-full bg-gradient-to-r 
                       from-green-800 to-cyan-800 blur-xl opacity-50
                    dark:from-green-500 dark:to-cyan-500 
                    absolute top-[30%] left-[30%] z-0"

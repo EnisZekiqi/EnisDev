@@ -29,7 +29,7 @@ const About = () => {
       {/* Abstract Animated Background Shapes */}
       <div className="absolute inset-0 z-0 flex justify-center items-center opacity-30">
        <motion.div
-  className="w-40 h-40 rounded-full bg-gradient-to-r 
+  className="w-20 h-20 sm:w-40 sm:h-40 rounded-full bg-gradient-to-r 
              from-blue-800 to-purple-800 blur-lg 
              dark:from-blue-500 dark:to-purple-500"
   animate={{ scale: [1, 1.2, 1] }}

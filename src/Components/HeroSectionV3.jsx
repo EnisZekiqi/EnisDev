@@ -12,7 +12,8 @@ const [menuOpen, setMenuOpen] = useState(false)
 
  return (
   <section
-      className="
+     className="
+      
         relative min-h-screen flex items-center justify-start overflow-hidden px-6
         bg-[radial-gradient(circle_at_center,theme(colors.white),theme(colors.gray.100)_20%)]
         dark:bg-[radial-gradient(circle_at_center,#050505,#000_20%)]
@@ -27,7 +28,17 @@ const [menuOpen, setMenuOpen] = useState(false)
           animate-gridMove
         "
       ></div>
-
+  <div
+       className="
+        top-light
+          absolute top-0 left-0 w-[90%] h-[35%] z-5
+          bg-[conic-gradient(from_180deg_at_50%_50%,rgba(0,255,200,0.15),rgba(0,150,255,0.1),rgba(255,0,200,0.1),rgba(0,255,200,0.15))]
+          blur-[80px]
+          mix-blend-hard-light
+          opacity-60
+          animate-auroraWave
+        "
+      ></div>
       {/* 🌈 Layer 2: Side glow */}
       <div
         className="
@@ -39,17 +50,7 @@ const [menuOpen, setMenuOpen] = useState(false)
       ></div>
 
       {/* 🌈 Layer 3: Aurora top wave */}
-      <div
-       className="
-        top-light
-          absolute top-0 left-0 w-[90%] h-[35%] z-5
-          bg-[conic-gradient(from_180deg_at_50%_50%,rgba(0,255,200,0.15),rgba(0,150,255,0.1),rgba(255,0,200,0.1),rgba(0,255,200,0.15))]
-          blur-[80px]
-          mix-blend-hard-light
-          opacity-60
-          animate-auroraWave
-        "
-      ></div>
+    
 
       {/* 🔽 Bottom fade-out mask */}
       <div
@@ -72,7 +73,7 @@ const [menuOpen, setMenuOpen] = useState(false)
       >
         <h2
           className="
-            text-[13vw] font-bold opacity-80 sm:opacity-20 
+            text-[15vw] sm:text-[13vw] font-bold opacity-80 sm:opacity-20 
             text-start pointer-events-none select-none 
             text-gray-800 dark:text-white/20 leading-tight text-balance
           "
@@ -86,7 +87,7 @@ const [menuOpen, setMenuOpen] = useState(false)
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="relative  z-10 text-[6.5vw] font-extrabold text-black dark:text-white/80 text-start"
+        className="relative  z-10 text-[7.5vw] sm:text-[6.3vw] font-extrabold text-black dark:text-white/80 text-start"
       >
         Designed to Build
       </motion.h1>

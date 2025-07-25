@@ -79,12 +79,7 @@ html {
   }
 }
 
-.navbarselection{
-backdrop-filter: blur( 7px );
--webkit-backdrop-filter: blur( 7px );
-border-radius: 999px;
-z-index: 100;
-}
+
 /* Ensure the navbar links are still interactive */
 .navbarselection a {
   pointer-events: auto;
