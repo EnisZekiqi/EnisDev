@@ -129,7 +129,7 @@ function Navbar({menuOpen,toggleMenu}) {
     
   return (
     <>
-    <div className=" fixed bg-white dark:bg-black rounded-3xl  top-1 left-2 z-[500] w-auto pointer-events-none hidden md:flex justify-start items-center">
+    <div className=" fixed bg-white dark:bg-black rounded-3xl  top-0 left-0 z-[500] w-auto pointer-events-none hidden md:flex justify-start items-center">
     <h1 className='nametext p-6 bg-white dark:bg-black transition-colors duration-300 w-fit font-bold text-lg'>Enis Zekiqi</h1>
     <motion.div
                     initial={{ opacity: 0, x: -100 }}

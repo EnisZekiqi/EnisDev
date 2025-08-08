@@ -7,7 +7,7 @@ import dd from '../assets/dd.jpg'
 import github from '../assets/9919.png'
 import rr from '../assets/rr.jpg'
 import { AiOutlineFire } from "react-icons/ai";
-
+import travium from '../assets/travium.jpg'
 const Projects = () => {
  
 
@@ -47,17 +47,18 @@ const HoverImageLinks = () => {
           icon={<AiOutlineFire size={23} />}
         />
         <Link
+          heading="Travium"
+          subheading="Travel Explorer Project"
+          imgSrc={travium}
+          href="https://travium.vercel.app/"
+        />
+        <Link
           heading="Finly"
           subheading="Finance Tracker Project"
           imgSrc={finly}
           href="https://eniszekiqi.github.io/Finly/"
         />
-        <Link
-          heading="HollowPurple"
-          subheading="E-commerce Project"
-          imgSrc={hollowpurple}
-          href="https://hollow-purple-five.vercel.app/"
-        />
+        
         
         <Link
           heading="GitHub"
