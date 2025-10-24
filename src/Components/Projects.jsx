@@ -8,6 +8,7 @@ import github from '../assets/9919.png'
 import rr from '../assets/rr.jpg'
 import { AiOutlineFire } from "react-icons/ai";
 import travium from '../assets/travium.jpg'
+import kazeanime from '../assets/kazeanime.png'
 const Projects = () => {
  
 
@@ -37,7 +38,7 @@ const HoverImageLinks = () => {
           imgSrc={rr}
           href="https://reactify-c4a.pages.dev/"
           icon={<AiOutlineFire size={23} />}
-          text='New'
+        
         />
         <Link
           heading="DevTrove"
@@ -53,10 +54,10 @@ const HoverImageLinks = () => {
           href="https://travium.vercel.app/"
         />
         <Link
-          heading="Finly"
-          subheading="Finance Tracker Project"
-          imgSrc={finly}
-          href="https://eniszekiqi.github.io/Finly/"
+          heading="KazeAnime"
+          subheading="Anime & Manga Discovery"
+          imgSrc={kazeanime}
+          href="https://kaze-anime.vercel.app/"
         />
         
         

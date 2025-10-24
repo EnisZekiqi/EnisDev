@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { CiMail, CiLinkedin } from "react-icons/ci";
+import { CiMail, CiLinkedin,CiLocationOn   } from "react-icons/ci";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const Contact = () => {
   return (
@@ -48,17 +49,46 @@ const Contact = () => {
       >
         <a
           href="mailto:enis_zekiqi@hotmail.com"
-          className="flex items-center gap-2 text-lg hover:text-cyan-400 transition-all"
+          className="flex justify-between items-center w-[330px] sm:w-[500px] gap-2 text-lg p-2 bg-[#343434]/30 hover:bg-[#343434]/50 rounded-lg border border-[#333] transition-all"
         >
-          <CiMail size={24} /> enis_zekiqi@hotmail.com
+        <div className="flex items-center gap-4">
+           <span className="border border-[#333]/80 p-2 rounded-md"> <CiMail size={24} /></span> 
+         <div className="flex flex-col items-start gap-1">
+          <h2 className="text-sm font-medium">Email</h2>
+          <p className="text-black/70 dark:text-white/70 font-light">enis_zekiqi@hotmail.com</p>
+         </div>
+         </div>
+         <span className="rounded-full bg-gray-200 dark:bg-[#343434] p-1.5 sm:p-3"><FiArrowUpRight/></span>
         </a>
         <a
           href="https://www.linkedin.com/in/enis-zekiqi-090b692b9/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-lg hover:text-cyan-400 transition-all"
+          className="flex justify-between items-center  w-[330px] sm:w-[500px] gap-2 text-lg p-2 bg-[#343434]/30 hover:bg-[#343434]/50 rounded-lg border border-[#333] transition-all"
         >
-          <CiLinkedin size={24} /> LinkedIn
+        <div className="flex items-center gap-4">
+           <span className="border border-[#333]/80 p-2 rounded-md"> <CiLinkedin size={24} /></span> 
+         <div className="flex flex-col items-start gap-1">
+          <h2 className="text-sm font-medium">LinkedIn</h2>
+          <p className="text-black/70 dark:text-white/70 font-light">Enis Zekiqi</p>
+         </div>
+         </div>
+         <span className="rounded-full bg-gray-200 dark:bg-[#343434] p-1.5 sm:p-3"><FiArrowUpRight/></span>
+        </a>
+        <a
+          href=""
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-between items-center  w-[330px] sm:w-[500px] gap-2 text-lg p-2 bg-[#343434]/30 hover:bg-[#343434]/50 rounded-lg border border-[#333] transition-all"
+        >
+        <div className="flex items-center gap-4">
+           <span className="border border-[#333]/80 p-2 rounded-md"> <CiLocationOn size={24} /></span> 
+         <div className="flex flex-col items-start gap-1">
+          <h2 className="text-sm font-medium">Location</h2>
+          <p className="text-black/70 dark:text-white/70 font-light">Vushtrri / Kosovo</p>
+         </div>
+         </div>
+         <span className="rounded-full bg-gray-200 dark:bg-[#343434] p-1.5 sm:p-3"><FiArrowUpRight/></span>
         </a>
       </motion.div>
     </div>
