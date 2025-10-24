@@ -108,11 +108,11 @@ const [menuOpen, setMenuOpen] = useState(false)
           <p className="text-xs opacity-100 dark:opacity-60">Projects</p>
         </div>
         <div>
-          <p className="font-semibold">197+</p>
+          <p className="font-semibold">226+</p>
           <p className="text-xs opacity-100 dark:opacity-60">Contributions</p>
         </div>
         <div>
-          <p className="font-semibold">110k+</p>
+          <p className="font-semibold">119k+</p>
           <p className="text-xs opacity-100 dark:opacity-60">Lines of Code</p>
         </div>
       </div>

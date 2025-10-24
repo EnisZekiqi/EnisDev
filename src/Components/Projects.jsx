@@ -8,7 +8,7 @@ import github from '../assets/9919.png'
 import rr from '../assets/rr.jpg'
 import { AiOutlineFire } from "react-icons/ai";
 import travium from '../assets/travium.jpg'
-import kazeanime from '../assets/kazeanime.png'
+import kazeanime from '../assets/KazeAnime.png'
 const Projects = () => {
  
 
