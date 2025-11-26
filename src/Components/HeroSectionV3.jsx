@@ -16,22 +16,33 @@ const [showText,setShowText]=useState('')
     }
 
 
-    const learnMore = [
-      {id:1, 
-        text:'Plain React & Vite', 
-        link:'react',
-        description:'When I first jumped into React, everything felt different from plain JavaScript—hooks, conditional rendering, and the whole component mindset. I started with Create React App, but it felt slow and outdated. Discovering Vite was a game-changer: faster, cleaner, and way more enjoyable to work with',
-        img:react},
-      {id:2, 
-        text:'NextJs the first Ecosystem', 
-        link:'nextjs',
-        description:'Next.js felt intimidating at first, but I dove straight into building things instead of overthinking. Server-side rendering, routing, API routes, and server components made me feel like I’d leveled up. Learning how to fetch data securely with environment variables was a big moment for me too',
-        img:nextjs},
-      {id:3, 
-        text:'Tanstack Start , the new Power', 
-        link:'tanstack',
-        description:'TanStack Start feels like the perfect mix of React and Next.js. You can build fully SSR or purely client-side depending on the project. Routing is powerful and flexible. The only tricky part is SSR, since it requires a dedicated server—unlike Next.js which handles it for you. But overall, I really enjoy working with it',
-        img:tanstack}]
+  const learnMore = [
+  {
+    id: 1,
+    text: "Plain React & Vite",
+    link: "react",
+    description:
+      "React felt different from plain JavaScript at first, but switching to Vite made the workflow faster and way more enjoyable.",
+    img: react
+  },
+  {
+    id: 2,
+    text: "Next.js — My First Ecosystem",
+    link: "nextjs",
+    description:
+      "Next.js helped me level up with SSR, CSR, ISR, routing, and server components. It made me understand the full power of the React ecosystem.",
+    img: nextjs
+  },
+  {
+    id: 3,
+    text: "TanStack Start",
+    link: "tanstack",
+    description:
+      "TanStack Start mixes the best of React and Next.js. Flexible routing and SSR options make it fun to build with.",
+    img: tanstack
+  }
+];
+
 
   const toggleShow = useCallback((info) => {
     setShowText((prev)=>info)
@@ -41,18 +52,14 @@ const [showText,setShowText]=useState('')
 
 
 
- const containerVariants = {
-    hidden: { opacity: 1 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      transition: { staggerChildren: 0.02, delayChildren: 0 * i },
-    }),
-  };
-
-  const letterVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
+  const textVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" }
+  }
+};
 
 
  return (
@@ -124,24 +131,19 @@ const [showText,setShowText]=useState('')
                 .map((example) => (
                   <span className="flex flex-col items-start">
                    <div className="flex items-center gap-2">
-                     <h1 className="font-semibold text-4xl text-white uppercase">{example.link}</h1>
+                     <h1 className="font-semibold text-3xl sm:text-4xl text-white uppercase">{example.link}</h1>
                      <img src={example.img} className="w-14 h-14" alt="" />
                    </div>
-         <motion.p
-        className="relative text-md md:text-lg text-start lg:text-2xl font-light mt-10 w-[80%] lg:w-[60%] text-black dark:text-[#fff]/70 z-10"
-       key={example.link}
-        variants={containerVariants}
+       <motion.p
+        key={example.link}
+        variants={textVariants}
         initial="hidden"
         animate="visible"
-      
+        className="relative w-full text-md md:text-lg text-start lg:text-2xl font-light mt-10 w-[80%] lg:w-[60%] text-black dark:text-[#fff]/70 z-10"
       >
-        {example.description.split("").map((char, index) => (
-          <motion.span key={index} variants={letterVariants}>
-            {char}
-          </motion.span>
-        ))}
-        
+        {example.description}
       </motion.p>
+
       <motion.button
       initial={{opacity:0}}
        animate={{opacity:1}}
@@ -175,7 +177,7 @@ const [showText,setShowText]=useState('')
   initial={{ opacity: 0, y: 30 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.7 }}
-  className="relative uppercase z-10 text-[7.5vw] sm:text-[6.3vw] font-extrabold text-black dark:text-white/80 text-start flex flex-col leading-[0.9]"
+  className="relative uppercase  z-10 text-[7.5vw] sm:text-[6.3vw] font-extrabold text-black dark:text-white/80 text-start flex flex-col leading-[0.9]"
 >
   <span className="mb-4">
     Front
@@ -216,7 +218,7 @@ const [showText,setShowText]=useState('')
       </AnimatePresence>
       <div
         className="
-          absolute bottom-2 right-0 sm:right-6 flex flex-col gap-4 p-4 rounded-xl shadow-lg text-sm
+          absolute  bottom-2 right-0 sm:right-6 flex flex-col gap-4 p-4 rounded-xl shadow-lg text-sm
            w-full max-w-sm
           z-[100]
         "
