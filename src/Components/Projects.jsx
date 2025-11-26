@@ -1,8 +1,6 @@
 import { useMotionValue, motion,useSpring, useTransform,useScroll } from "framer-motion";
 import React, { useRef } from "react";
 import { FiArrowRight } from "react-icons/fi";
-import hollowpurple from '../assets/hollowpurple.png'
-import finly from '../assets/Capture.jpg'
 import dd from '../assets/dd.jpg'
 import github from '../assets/9919.png'
 import rr from '../assets/rr.jpg'

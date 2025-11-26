@@ -1,19 +1,63 @@
 import { motion,AnimatePresence } from "framer-motion";
 import ThemeToggle from "../utils/ThemeToggle";
-import { useState } from "react";
+import { useState,useCallback,useEffect } from "react";
+import { FiArrowUpRight } from "react-icons/fi";
+import tanstack from '../assets/tanstack.svg'
+import react from '../assets/react.svg'
+import nextjs from '../assets/nextjsv2.svg'
+import React from "react";
 const HeroSectionV3 = () => {
 
 const [menuOpen, setMenuOpen] = useState(false)
-    
+const [showText,setShowText]=useState('')
+
     const toggleMenu = (e) => {
         setMenuOpen(prev =>!(prev))
-        e.Pagination()
     }
+
+
+    const learnMore = [
+      {id:1, 
+        text:'Plain React & Vite', 
+        link:'react',
+        description:'When I first jumped into React, everything felt different from plain JavaScript—hooks, conditional rendering, and the whole component mindset. I started with Create React App, but it felt slow and outdated. Discovering Vite was a game-changer: faster, cleaner, and way more enjoyable to work with',
+        img:react},
+      {id:2, 
+        text:'NextJs the first Ecosystem', 
+        link:'nextjs',
+        description:'Next.js felt intimidating at first, but I dove straight into building things instead of overthinking. Server-side rendering, routing, API routes, and server components made me feel like I’d leveled up. Learning how to fetch data securely with environment variables was a big moment for me too',
+        img:nextjs},
+      {id:3, 
+        text:'Tanstack Start , the new Power', 
+        link:'tanstack',
+        description:'TanStack Start feels like the perfect mix of React and Next.js. You can build fully SSR or purely client-side depending on the project. Routing is powerful and flexible. The only tricky part is SSR, since it requires a dedicated server—unlike Next.js which handles it for you. But overall, I really enjoy working with it',
+        img:tanstack}]
+
+  const toggleShow = useCallback((info) => {
+    setShowText((prev)=>info)
+  }, [])
+
+
+
+
+
+ const containerVariants = {
+    hidden: { opacity: 1 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.02, delayChildren: 0 * i },
+    }),
+  };
+
+  const letterVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
 
  return (
   <section
      className="
-      
         relative min-h-screen flex items-center justify-start overflow-hidden px-6
         bg-[radial-gradient(circle_at_center,theme(colors.white),theme(colors.gray.100)_20%)]
         dark:bg-[radial-gradient(circle_at_center,#050505,#000_20%)]
@@ -50,7 +94,6 @@ const [menuOpen, setMenuOpen] = useState(false)
       ></div>
 
       {/* 🌈 Layer 3: Aurora top wave */}
-    
 
       {/* 🔽 Bottom fade-out mask */}
       <div
@@ -66,6 +109,51 @@ const [menuOpen, setMenuOpen] = useState(false)
       <Navbar menuOpen={menuOpen} toggleMenu={toggleMenu} />
 
       {/* 🔙 Large faded background text */}
+    <AnimatePresence mode='wait'>
+      {showText ?
+      <motion.div
+      key={showText}
+      initial={{opacity:0}}
+      animate={{opacity:1}}
+      exit={{opacity:0}}
+      transition={{duration:0.3}}
+      className="h-full"
+      >
+          {learnMore
+                .filter((example) => example.link === showText) // Filter by Text Animation
+                .map((example) => (
+                  <span className="flex flex-col items-start">
+                   <div className="flex items-center gap-2">
+                     <h1 className="font-semibold text-4xl text-white uppercase">{example.link}</h1>
+                     <img src={example.img} className="w-14 h-14" alt="" />
+                   </div>
+         <motion.p
+        className="relative text-md md:text-lg text-start lg:text-2xl font-light mt-10 w-[80%] lg:w-[60%] text-black dark:text-[#fff]/70 z-10"
+       key={example.link}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      
+      >
+        {example.description.split("").map((char, index) => (
+          <motion.span key={index} variants={letterVariants}>
+            {char}
+          </motion.span>
+        ))}
+        
+      </motion.p>
+      <motion.button
+      initial={{opacity:0}}
+       animate={{opacity:1}}
+      exit={{opacity:0}}
+      transition={{duration:0.3,delay:1.5}}
+      className="text-white bg-black dark:text-black dark:bg-white z-[100] rounded-full p-2 mt-10 cursor-pointer" onClick={()=>setShowText('')}>Go Back</motion.button>
+                  </span>
+                ))}
+                
+        </motion.div>
+      : (
+      <>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 0.5, delay: 0.7 } }}
@@ -83,38 +171,66 @@ const [menuOpen, setMenuOpen] = useState(false)
       </motion.div>
 
       {/* 🔠 Main Heading */}
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="relative  z-10 text-[7.5vw] sm:text-[6.3vw] font-extrabold text-black dark:text-white/80 text-start"
-      >
-        Designed to Build
-      </motion.h1>
+     <motion.h1
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7 }}
+  className="relative uppercase z-10 text-[7.5vw] sm:text-[6.3vw] font-extrabold text-black dark:text-white/80 text-start flex flex-col leading-[0.9]"
+>
+  <span className="mb-4">
+    Front
+    <em className="lowercase italic text-[7vw] sm:text-[6vw] font-light ml-1 ">end</em>
+  </span>
+  <span>Developer</span>
+</motion.h1>
+
+
 
       {/* 🔻 Triangle element */}
-     
 
       {/* 📦 Bottom-right stats */}
-      <div
+        <div
         className="
-          absolute bottom-2 right-6 flex gap-6 p-4 rounded-xl shadow-lg z-30 text-sm
-          border border-[#343434] bg-white text-black
-          dark:bg-[#343434]/20 dark:text-white
+          absolute bottom-[70%] right-[35%] sm:right-[20%] flex gap-4 p-4 rounded-xl shadow-lg z-30 text-sm
         "
       >
-        <div>
-          <p className="font-semibold">15+</p>
-          <p className="text-xs opacity-100 dark:opacity-60">Projects</p>
-        </div>
-        <div>
-          <p className="font-semibold">226+</p>
-          <p className="text-xs opacity-100 dark:opacity-60">Contributions</p>
-        </div>
-        <div>
-          <p className="font-semibold">119k+</p>
-          <p className="text-xs opacity-100 dark:opacity-60">Lines of Code</p>
-        </div>
+        <img src={react}  className=" w-10 h-10 sm:w-20 sm:h-20" alt="" />
+      </div>
+       <div
+        className="
+          absolute bottom-[55%] right-12 flex gap-4 p-4 rounded-xl shadow-lg z-30 text-sm
+        "
+      >
+        <img src={tanstack} className="w-14 h-14 sm:w-24 sm:h-24 rotate-15"  alt="" />
+      </div>
+      <div
+        className="
+          absolute bottom-[30%] right-[20%] sm:bottom-[35%] sm:right-[15%]  flex gap-4 p-4 rounded-xl shadow-lg z-30 text-sm
+        "
+      >
+        <img src={nextjs} className="w-10 h-10 sm:w-20 sm:h-20 -rotate-[20deg]"  alt="" />
+      </div>
+     
+      </>
+      )}
+      </AnimatePresence>
+      <div
+        className="
+          absolute bottom-2 right-0 sm:right-6 flex flex-col gap-4 p-4 rounded-xl shadow-lg text-sm
+           w-full max-w-sm
+          z-[100]
+        "
+      >
+        
+       {learnMore.map((item)=>(
+
+        <span key={item.id} onClick={()=>toggleShow(item.link)} className="pt-2 cursor-pointer pb-2 border-b border-[#343434] w-full pointer-events-auto flex items-center justify-between">
+          <p className="text-sm font-light hover:text-white/80 transition-colors duration-300">• {item.text}</p>
+                   <span className="rounded-full bg-gray-200 dark:bg-[#343434] p-1.5 sm:p-3"><FiArrowUpRight/></span>
+          
+        </span>
+       ))
+        }
       </div>
     </section>
 );
@@ -231,6 +347,6 @@ function Navbar({menuOpen,toggleMenu}) {
     </>
         
         );
-    }
+    };
 
 export default HeroSectionV3;
