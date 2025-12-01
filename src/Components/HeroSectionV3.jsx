@@ -148,7 +148,7 @@ const [showText,setShowText]=useState('')
       initial={{opacity:0}}
        animate={{opacity:1}}
       exit={{opacity:0}}
-      transition={{duration:0.3,delay:1.5}}
+      transition={{duration:0.3,delay:0.2}}
       className="text-white bg-black dark:text-black dark:bg-white z-[100] rounded-full p-2 mt-10 cursor-pointer" onClick={()=>setShowText('')}>Go Back</motion.button>
                   </span>
                 ))}

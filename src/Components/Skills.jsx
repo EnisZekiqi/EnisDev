@@ -1,35 +1,42 @@
 import { useState,useEffect } from "react";
-import { SiTailwindcss, SiFramer } from "react-icons/si";
+import { SiTailwindcss, SiFramer,SiDrizzle  } from "react-icons/si";
 import { FaReact, FaTools } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Skills = () => {
   const services = [
-    {
-      category: "Web Development",
-      description: "Building robust, responsive websites using modern frameworks.",
-      icon: <FaReact className="text-blue-500 drop-shadow-[0_0_10px_rgba(59,130,246,0.7)]" />,
-      skills: ["React", "JavaScript", "TypeScript"],
-    },
-    {
-      category: "Interactive Design",
-      description: "Creating clean, user-friendly, and interactive interfaces.",
-      icon: <SiTailwindcss className="text-cyan-400 drop-shadow-[0_0_10px_rgba(6,182,212,0.7)]" />,
-      skills: ["Tailwind CSS", "UX/UI Design"],
-    },
-    {
-      category: "Animation Motion",
-      description: "Adding smooth animations to improve user experience.",
-      icon: <SiFramer className="text-purple-500 drop-shadow-[0_0_10px_rgba(139,92,246,0.7)]" />,
-      skills: ["Framer Motion", "GSAP"],
-    },
-    {
-      category: "Additional Skills",
-      description: "Tools and best practices for optimized development.",
-      icon: <FaTools className="text-yellow-400 drop-shadow-[0_0_10px_rgba(234,179,8,0.7)]" />,
-      skills: ["Git", "Libraries", "Optimization"],
-    },
-  ];
+  {
+    category: "Web Development",
+    description: "Building robust, responsive websites using modern frameworks.",
+    icon: <FaReact className="text-blue-500 drop-shadow-[0_0_10px_rgba(59,130,246,0.7)]" />,
+    skills: ["React", "JavaScript", "TypeScript"],
+  },
+  {
+    category: "Interactive Design",
+    description: "Creating clean, user-friendly, and interactive interfaces.",
+    icon: <SiTailwindcss className="text-cyan-400 drop-shadow-[0_0_10px_rgba(6,182,212,0.7)]" />,
+    skills: ["Tailwind CSS", "UX/UI Design"],
+  },
+  {
+    category: "Animation Motion",
+    description: "Adding smooth animations to improve user experience.",
+    icon: <SiFramer className="text-purple-500 drop-shadow-[0_0_10px_rgba(139,92,246,0.7)]" />,
+    skills: ["Framer Motion", "GSAP"],
+  },
+  {
+    category: "Additional Skills",
+    description: "Tools and best practices for optimized development.",
+    icon: <FaTools className="text-yellow-400 drop-shadow-[0_0_10px_rgba(234,179,8,0.7)]" />,
+    skills: ["Git", "Libraries", "Optimization"],
+  },
+  {
+    category: "Database Tools",
+    description: "Working with modern database tools and backend services.",
+    icon: <SiDrizzle className="text-green-400 drop-shadow-[0_0_10px_rgba(74,222,128,0.7)]" />,
+    skills: ["Drizzle ORM", "Supabase"],
+  }
+];
+
 
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
