@@ -139,12 +139,12 @@ const Skills = () => {
 
 
               {/* Description and Skills */}
-              <p className="text-black dark:text-white text-center text-sm mb-2 mt-2">{service.description}</p>
+              <p className="text-black/70 dark:text-white/70 text-center text-sm mb-2 mt-2">{service.description}</p>
               <div className="flex gap-2 flex-wrap">
                 {service.skills.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1 bg-black/70 dark:bg-[#ffffff20] text-white text-xs rounded-full"
+                    className="px-3 py-1 bg-black/70 dark:bg-[#ffffff20] text-white text-xs rounded-full mt-2"
                   >
                     {skill}
                   </span>
