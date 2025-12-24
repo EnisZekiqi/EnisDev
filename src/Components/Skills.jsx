@@ -22,7 +22,7 @@ const Skills = () => {
     description: "Adding smooth animations to improve user experience.",
     icon: <SiFramer className="text-purple-500 drop-shadow-[0_0_10px_rgba(139,92,246,0.7)]" />,
     skills: ["Framer Motion", "GSAP"],
-  },
+  },  
   {
     category: "Additional Skills",
     description: "Tools and best practices for optimized development.",

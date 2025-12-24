@@ -62,6 +62,7 @@ const [showText,setShowText]=useState('')
 };
 
 
+
  return (
   <section
      className="
@@ -195,7 +196,7 @@ const [showText,setShowText]=useState('')
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y:0,transition: { duration: 0.5, delay: 0.2 } }}
         className="
-          absolute bottom-[70%] right-[35%] sm:right-[20%] flex gap-4 p-4 rounded-xl shadow-lg z-30 text-sm
+          absolute bottom-[70%] right-[35%]  dark:bg-transparent sm:right-[20%] flex gap-4 p-4 rounded-xl  z-30 text-sm
         "
       >
         <img src={react}  className=" w-10 h-10 sm:w-20 sm:h-20" alt="" />
@@ -204,19 +205,19 @@ const [showText,setShowText]=useState('')
        initial={{ opacity: 0, y: 20 }}
        animate={{ opacity: 1,y:0, transition: { duration: 0.5, delay: 0.4 } }}
         className="
-          absolute bottom-[55%] right-12 flex gap-4 p-4 rounded-xl shadow-lg z-30 text-sm
+          absolute bottom-[55%]  dark:bg-transparent right-12 flex gap-4 p-4 rounded-xl  z-30 text-sm
         "
       >
-        <img src={tanstack} className="w-14 h-14 sm:w-24 sm:h-24 rotate-15"  alt="" />
+        <img src={tanstack} className="w-14 h-14 sm:w-24 sm:h-24 rotate-15 invert dark:invert-0"  alt="" />
       </motion.div>
       <motion.div
       initial={{ opacity: 0 ,y:20}}
       animate={{ opacity: 1, y:0,transition: { duration: 0.5, delay: 0.55 } }}
         className="
-          absolute bottom-[30%] right-[20%] sm:bottom-[35%] sm:right-[15%]  flex gap-4 p-4 rounded-xl shadow-lg z-30 text-sm
+          absolute bottom-[30%]  dark:bg-transparent right-[20%] sm:bottom-[35%] sm:right-[15%]  flex gap-4 p-4 rounded-xl  z-30 text-sm
         "
       >
-        <img src={nextjs} className="w-10 h-10 sm:w-20 sm:h-20 -rotate-[20deg]"  alt="" />
+        <img src={nextjs} className="w-10 h-10 sm:w-20 sm:h-20 -rotate-[20deg] invert dark:invert-0"  alt="" />
       </motion.div>
      
       </>
